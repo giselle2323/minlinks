@@ -1,13 +1,20 @@
-import { Windmill } from '@windmill/react-ui'
 import { UserProvider } from '@auth0/nextjs-auth0';
-import '../styles/globals.css'
+import '../styles/globals.css';
+import { SidebarProvider } from './context/SidebarContext';
+import ThemedSuspense from '../components/ThemedSuspense';
+import { Windmill } from '@windmill/react-ui'
 
 function MyApp({ Component, pageProps }) {
   return (
     <UserProvider>
-      <Windmill>
-        <Component {...pageProps} />
-      </Windmill>
+      <SidebarProvider>
+        <ThemedSuspense fallback={<ThemedSuspense />}>
+          <Windmill usePreferences>
+            <Component {...pageProps} />
+          </Windmill>
+        </ThemedSuspense>
+      </SidebarProvider>
+      
     </UserProvider>
     
   )
