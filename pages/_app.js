@@ -3,11 +3,11 @@ import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   const Layout = Component.layout || (({ children }) => <>{children}</>);
-  return getLayout(
+  return (
     <UserProvider>
       <Layout>
         <Component {...pageProps} />
-        </Layout>
+      </Layout>
     </UserProvider>
     
   )

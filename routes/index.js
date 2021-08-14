@@ -8,18 +8,18 @@
  const routes = [
   {
     path: '/dashboard', // the url
-    icon: 'Dashboard', // the component being exported from icons/index.js
+    icon: 'DashboardIcon', // the component being exported from icons/index.js
     name: 'Dashboard', // name that appear in Sidebar
   },
   {
-    path: '/discover',
-    icon: 'Discover',
-    name: 'Dicover',
+    path: '/components',
+    icon: 'ComponentIcon',
+    name: 'Component',
   },
   {
-    path: '/contribute',
-    icon: 'Contribute',
-    name: 'Contribute',
+    path: '/articles',
+    icon: 'ArticleIcon',
+    name: 'Article',
   },
   
 ]
