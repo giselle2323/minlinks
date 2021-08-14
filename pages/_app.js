@@ -1,13 +1,13 @@
-import { Windmill } from '@windmill/react-ui'
 import { UserProvider } from '@auth0/nextjs-auth0';
-import '../styles/globals.css'
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
+  const Layout = Component.layout || (({ children }) => <>{children}</>);
   return (
     <UserProvider>
-      <Windmill>
+      <Layout>
         <Component {...pageProps} />
-      </Windmill>
+      </Layout>
     </UserProvider>
     
   )
