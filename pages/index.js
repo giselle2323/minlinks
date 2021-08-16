@@ -17,6 +17,7 @@ export default function Home() {
     <div>
       {/* <a href="/auth/login">Login</a> */}
       <p>Landing</p>
+      <a href="/auth/login">Login</a>
     </div>
     
   ) 
