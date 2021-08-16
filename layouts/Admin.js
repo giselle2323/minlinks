@@ -29,11 +29,11 @@ export default function Admin({ children }) {
   }
   
   return (
-    <div className="h-screen flex overflow-hidden bg-gray-100">
+    <div className="h-screen flex overflow-hidden font-sans">
       
       <Sidebar setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen} />
-      <div className="flex flex-col w-0 flex-1 overflow-hidden">
-        <div className="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
+      <div className="flex flex-col w-full flex-1 overflow-hidden bg-blue-light_400">
+        <div className="relative z-10 flex-shrink-0 flex h-16">
           <button
             type="button"
             className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
@@ -42,8 +42,8 @@ export default function Admin({ children }) {
             <span className="sr-only">Open sidebar</span>
             <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
           </button>
-          <div className="flex-1 px-4 flex justify-between">
-            <div className="flex-1 flex">
+          <div className="flex-1 px-4 py-4 flex justify-end">
+            <div className="flex">
               <form className="w-full flex md:ml-0" action="#" method="GET">
                 <label htmlFor="search-field" className="sr-only">
                   Search
@@ -57,7 +57,7 @@ export default function Admin({ children }) {
                     className="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
                     placeholder="Search"
                     type="search"
-                    name="search"
+                    name="search for bits"
                   />
                 </div>
               </form>
@@ -121,18 +121,19 @@ export default function Admin({ children }) {
         </div>
 
         <main className="flex-1 relative overflow-y-auto focus:outline-none">
-          <div className="py-6">
+          {/* <div className="py-4">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
               <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              {/* Replace with your content */}
+              
               <div className="py-4">
                 <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" />
               </div>
-              {/* /End replace */}
+              
             </div>
-          </div>
+          </div> */}
+          {children}
         </main>
       </div>
     </div>
