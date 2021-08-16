@@ -1,354 +1,136 @@
-import React from "react";
+import React, {useState, Fragment} from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { Dialog, Menu, Transition } from '@headlessui/react'
+import {
+  BellIcon,
+  CalendarIcon,
+  ChartBarIcon,
+  FolderIcon,
+  HomeIcon,
+  InboxIcon,
+  MenuAlt2Icon,
+  UsersIcon,
+  XIcon,
+} from '@heroicons/react/outline'
+export default function Sidebar({setSidebarOpen, sidebarOpen}) {
 
-import UserDropdown from "../Dropdown/UserDropdown.js";
-
-export default function Sidebar() {
-  const [collapseShow, setCollapseShow] = React.useState("hidden");
-  const router = useRouter();
+  const navigation = [
+    { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
+    { name: 'Team', href: '#', icon: UsersIcon, current: false },
+    { name: 'Projects', href: '#', icon: FolderIcon, current: false },
+    { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
+    { name: 'Documents', href: '#', icon: InboxIcon, current: false },
+    { name: 'Reports', href: '#', icon: ChartBarIcon, current: false },
+  ]
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
+  
   return (
     <>
-      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
-        <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
-          {/* Toggler */}
-          <button
-            className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-            type="button"
-            onClick={() => setCollapseShow("bg-white m-2 py-3 px-6")}
+    <Transition.Root show={sidebarOpen} as={Fragment}>
+        <Dialog
+          as="div"
+          static
+          className="fixed inset-0 flex z-40 md:hidden"
+          open={sidebarOpen}
+          onClose={setSidebarOpen}
+        >
+          <Transition.Child
+            as={Fragment}
+            enter="transition-opacity ease-linear duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-linear duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
           >
-            <i className="fas fa-bars"></i>
-          </button>
-          {/* Brand */}
-          <Link href="/">
-            <a
-              href="#pablo"
-              className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-            >
-              Docs
-            </a>
-          </Link>
-          {/* User */}
-          <ul className="md:hidden items-center flex flex-wrap list-none">
-            <li className="inline-block relative">
-              <UserDropdown />
-            </li>
-          </ul>
-          {/* Collapse */}
-          <div
-            className={
-              "md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded " +
-              collapseShow
-            }
+            <Dialog.Overlay className="fixed inset-0 bg-gray-600 bg-opacity-75" />
+          </Transition.Child>
+          <Transition.Child
+            as={Fragment}
+            enter="transition ease-in-out duration-300 transform"
+            enterFrom="-translate-x-full"
+            enterTo="translate-x-0"
+            leave="transition ease-in-out duration-300 transform"
+            leaveFrom="translate-x-0"
+            leaveTo="-translate-x-full"
           >
-            {/* Collapse header */}
-            <div className="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200">
-              <div className="flex flex-wrap">
-                <div className="w-6/12">
-                  <Link href="/">
-                    <a
-                      href="#pablo"
-                      className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-                    >
-                     Docs
-                    </a>
-                  </Link>
-                </div>
-                <div className="w-6/12 flex justify-end">
+            <div className="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-indigo-700">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-in-out duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="ease-in-out duration-300"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <div className="absolute top-0 right-0 -mr-12 pt-2">
                   <button
                     type="button"
-                    className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-                    onClick={() => setCollapseShow("hidden")}
+                    className="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                    onClick={() => setSidebarOpen(false)}
                   >
-                    <i className="fas fa-times"></i>
+                    <span className="sr-only">Close sidebar</span>
+                    <XIcon className="h-6 w-6 text-white" aria-hidden="true" />
                   </button>
                 </div>
+              </Transition.Child>
+              <div className="flex-shrink-0 flex items-center px-4">
+                Docs
+              </div>
+              <div className="mt-5 flex-1 h-0 overflow-y-auto">
+                <nav className="px-2 space-y-1">
+                  {navigation.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className={classNames(
+                        item.current ? 'bg-blue-light_500 bg-opacity-10 text-gray-700' : 'text-gray-700 hover:bg-blue-light_500',
+                        'group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                      )}
+                    >
+                      <item.icon className="mr-4 flex-shrink-0 h-6 w-6 text-gray-700" aria-hidden="true" />
+                      {item.name}
+                    </a>
+                  ))}
+                </nav>
               </div>
             </div>
-            {/* Form */}
-            <form className="mt-6 mb-4 md:hidden">
-              <div className="mb-3 pt-0">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="border-0 px-3 py-2 h-12 border border-solid  border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
-                />
-              </div>
-            </form>
-
-            {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Admin Layout Pages
-            </h6>
-            {/* Navigation */}
-
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-              <li className="items-center">
-                <Link href="/admin/dashboard">
+          </Transition.Child>
+          <div className="flex-shrink-0 w-14" aria-hidden="true">
+            {/* Dummy element to force sidebar to shrink to fit close icon */}
+          </div>
+        </Dialog>
+      </Transition.Root>
+     <div className="hidden bg-white md:flex md:flex-shrink-0">
+        <div className="flex flex-col w-64">
+          {/* Sidebar component, swap this element with another sidebar if you like */}
+          <div className="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto">
+            <div className="flex items-center flex-shrink-0 px-4">
+              <Link href="/"><a className="text-blue-light_500">Docs</a></Link>
+            </div>
+            <div className="mt-5 flex-1 flex flex-col">
+              <nav className="flex-1 px-2 space-y-1">
+                {navigation.map((item) => (
                   <a
-                    href="#pablo"
-                    className={
-                      "text-xs uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/dashboard") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
+                    key={item.name}
+                    href={item.href}
+                    className={classNames(
+                      item.current ? 'bg-blue-light_500 bg-opacity-10 text-gray-700' : 'text-gray-700 hover:bg-blue-light_500',
+                      'group flex items-center px-2 py-4 text-sm font-medium rounded-md'
+                    )}
                   >
-                    <i
-                      className={
-                        "fas fa-tv mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/dashboard") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
-                      }
-                    ></i>{" "}
-                    Dashboard
+                    <item.icon className="mr-3 flex-shrink-0 h-6 w-6 text-gray-700" aria-hidden="true" />
+                    {item.name}
                   </a>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link href="/admin/settings">
-                  <a
-                    href="#pablo"
-                    className={
-                      "text-xs uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/settings") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
-                  >
-                    <i
-                      className={
-                        "fas fa-tools mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/settings") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
-                      }
-                    ></i>{" "}
-                    Settings
-                  </a>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link href="/admin/tables">
-                  <a
-                    href="#pablo"
-                    className={
-                      "text-xs uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/tables") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
-                  >
-                    <i
-                      className={
-                        "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/tables") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
-                      }
-                    ></i>{" "}
-                    Tables
-                  </a>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link href="/admin/maps">
-                  <a
-                    href="#pablo"
-                    className={
-                      "text-xs uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/maps") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
-                  >
-                    <i
-                      className={
-                        "fas fa-map-marked mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/maps") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
-                      }
-                    ></i>{" "}
-                    Maps
-                  </a>
-                </Link>
-              </li>
-            </ul>
-
-            {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Auth Layout Pages
-            </h6>
-            {/* Navigation */}
-
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-              <li className="items-center">
-                <Link href="/auth/login">
-                  <a
-                    href="#pablo"
-                    className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  >
-                    <i className="fas fa-fingerprint text-blueGray-400 mr-2 text-sm"></i>{" "}
-                    Login
-                  </a>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link href="/auth/register">
-                  <a
-                    href="#pablo"
-                    className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  >
-                    <i className="fas fa-clipboard-list text-blueGray-300 mr-2 text-sm"></i>{" "}
-                    Register
-                  </a>
-                </Link>
-              </li>
-            </ul>
-
-            {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              No Layout Pages
-            </h6>
-            {/* Navigation */}
-
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-              <li className="items-center">
-                <Link href="/landing">
-                  <a
-                    href="#pablo"
-                    className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  >
-                    <i className="fas fa-newspaper text-blueGray-400 mr-2 text-sm"></i>{" "}
-                    Landing Page
-                  </a>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link href="/profile">
-                  <a
-                    href="#pablo"
-                    className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  >
-                    <i className="fas fa-user-circle text-blueGray-400 mr-2 text-sm"></i>{" "}
-                    Profile Page
-                  </a>
-                </Link>
-              </li>
-            </ul>
-
-            {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Documentation
-            </h6>
-            {/* Navigation */}
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/colors/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fas fa-paint-brush mr-2 text-blueGray-300 text-base"></i>
-                  Styles
-                </a>
-              </li>
-
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/alerts/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fab fa-css3-alt mr-2 text-blueGray-300 text-base"></i>
-                  CSS Components
-                </a>
-              </li>
-
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/angular/overview/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fab fa-angular mr-2 text-blueGray-300 text-base"></i>
-                  Angular
-                </a>
-              </li>
-
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/js/overview/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fab fa-js-square mr-2 text-blueGray-300 text-base"></i>
-                  Javascript
-                </a>
-              </li>
-
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/overview/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fab fa-react mr-2 text-blueGray-300 text-base"></i>
-                  NextJS
-                </a>
-              </li>
-
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fab fa-react mr-2 text-blueGray-300 text-base"></i>
-                  React
-                </a>
-              </li>
-
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/svelte/overview/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fas fa-link mr-2 text-blueGray-300 text-base"></i>
-                  Svelte
-                </a>
-              </li>
-
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/vue/overview/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fab fa-vuejs mr-2 text-blueGray-300 text-base"></i>
-                  VueJS
-                </a>
-              </li>
-            </ul>
+                ))}
+              </nav>
+            </div>
           </div>
         </div>
-      </nav>
+      </div>
     </>
   );
 }

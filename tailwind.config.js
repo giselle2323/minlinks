@@ -1,5 +1,6 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-const windmill = require('@windmill/react-ui/config')
+const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
+const windmill = require('@windmill/react-ui/config');
 
 module.exports = windmill({
   mode: 'jit',
@@ -10,10 +11,21 @@ module.exports = windmill({
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        blue: {
+          'light_500': '#0085FF',
+        },
+        gray:{
+          700: '#707EAE'
+        }
+      }
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+      // ...
+    require('@tailwindcss/forms'),
+  ],
 })
