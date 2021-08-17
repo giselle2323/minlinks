@@ -15,12 +15,8 @@ import {
 export default function Sidebar({setSidebarOpen, sidebarOpen}) {
 
   const navigation = [
-    { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-    { name: 'Team', href: '#', icon: UsersIcon, current: false },
-    { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-    { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-    { name: 'Documents', href: '#', icon: InboxIcon, current: false },
-    { name: 'Reports', href: '#', icon: ChartBarIcon, current: false },
+    { name: 'Components', href: '#', icon: HomeIcon, current: true },
+    { name: 'Artcles', href: '#', icon: UsersIcon, current: false },
   ]
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -56,7 +52,7 @@ export default function Sidebar({setSidebarOpen, sidebarOpen}) {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-indigo-700">
+            <div className="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-white">
               <Transition.Child
                 as={Fragment}
                 enter="ease-in-out duration-300"
@@ -77,8 +73,8 @@ export default function Sidebar({setSidebarOpen, sidebarOpen}) {
                   </button>
                 </div>
               </Transition.Child>
-              <div className="flex-shrink-0 flex items-center px-4">
-                Docs
+              <div className="flex-shrink-0 flex items-center px-4 text-blue-light_500 font-bold text-xl md:text-2xl">
+                Front Bits
               </div>
               <div className="mt-5 flex-1 h-0 overflow-y-auto">
                 <nav className="px-2 space-y-1">
@@ -104,12 +100,12 @@ export default function Sidebar({setSidebarOpen, sidebarOpen}) {
           </div>
         </Dialog>
       </Transition.Root>
-     <div className="hidden bg-white md:flex md:flex-shrink-0">
+     <div className="hidden bg-white md:flex md:flex-shrink-0 px-6">
         <div className="flex flex-col w-64">
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto">
             <div className="flex items-center flex-shrink-0 px-4">
-              <Link href="/"><a className="text-blue-light_500">Docs</a></Link>
+              <Link href="/"><a className="text-blue-light_500 font-bold text-xl md:text-2xl">Front Bits</a></Link>
             </div>
             <div className="mt-5 flex-1 flex flex-col">
               <nav className="flex-1 px-2 space-y-1">

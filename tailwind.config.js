@@ -1,9 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
-const colors = require('tailwindcss/colors');
-const windmill = require('@windmill/react-ui/config');
 
-module.exports = windmill({
-  mode: 'jit',
+module.exports = {
+  mode: '',
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -13,10 +11,13 @@ module.exports = windmill({
       },
       colors: {
         blue: {
-          'light_500': '#0085FF',
+          'light_400': '#F4F7FE',
+          'light_500': '#2563EB',
+          'light_600': '#2B3674'
         },
         gray:{
-          700: '#707EAE'
+          700: '#707EAE',
+         
         }
       }
     },
@@ -28,4 +29,4 @@ module.exports = windmill({
       // ...
     require('@tailwindcss/forms'),
   ],
-})
+}
