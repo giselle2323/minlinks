@@ -1,4 +1,5 @@
 // import { useUser } from '@auth0/nextjs-auth0';
+import Link from "next/dist/client/link"
 export default function Home() {
   // const { user, error, isLoading } = useUser();
 
@@ -17,7 +18,8 @@ export default function Home() {
     <div>
       {/* <a href="/auth/login">Login</a> */}
       <p>Landing</p>
-      <a href="api/auth/login">Login</a>
+      {/* <Link href="/api/auth/login">Login</Link> */}
+    
     </div>
     
   ) 
