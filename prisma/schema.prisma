@@ -14,7 +14,9 @@ model Post {
   author    User  @relation(fields: [authorId], references: [id])
   authorId  Int
   createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+  updatedAt     DateTime ?  @updatedAt @map(name: "updated_at")
+  tag  String ?
+  links String ?
   comments         Comment[] //A post can have many comments
   likes         Like[] //A post cna have many likes
    @@map(name: "posts")
@@ -25,7 +27,7 @@ model User {
   name          String
   email         String @unique
   createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+  updatedAt     DateTime ?  @updatedAt @map(name: "updated_at")
   posts         Post[]
   likes         Like[]
   comments      Comment[]
@@ -41,7 +43,7 @@ model Comment {
   user    User @relation(fields: [userId], references: [id])
   userId   Int
   createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+  updatedAt     DateTime ?  @updatedAt @map(name: "updated_at")
   @@map(name: "comments")
 }
 
@@ -52,6 +54,6 @@ model Like {
   user    User @relation(fields: [userId], references: [id])
   userId   Int
   createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+  updatedAt     DateTime ?  @updatedAt @map(name: "updated_at")
   @@map(name: "likes")
 }

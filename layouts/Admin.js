@@ -1,15 +1,9 @@
-import React, {useState, Fragment} from "react";
-import { Dialog, Menu, Transition } from '@headlessui/react'
+import React, {useState, useEffect, Fragment, useLayoutEffect} from "react";
+import { Menu, Transition } from '@headlessui/react';
+import { useUser } from "@auth0/nextjs-auth0";
+import {supabase} from '../utils/supabase';
 import {
-  BellIcon,
-  CalendarIcon,
-  ChartBarIcon,
-  FolderIcon,
-  HomeIcon,
-  InboxIcon,
-  MenuAlt2Icon,
-  UsersIcon,
-  XIcon,
+  MenuAlt2Icon
 } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
 
@@ -17,7 +11,42 @@ import { SearchIcon } from '@heroicons/react/solid'
 import Sidebar from "../components/Sidebar"
 
 export default function Admin({ children }) {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { user } = useUser();
+
+  useEffect(() => {
+    async function findAndCreateUser () {
+
+      const { data } = await supabase
+      .from('users')
+      .select('email')
+      .filter('email', 'eq', user.email)
+  
+      if(!data.length > 0) {
+        const { data } =  await supabase
+        .from('users')
+        .insert([
+          { name: user.name, email: user.email },
+        ])
+   
+        setPrismaUser({
+          prismaUser : {
+            ...data
+          }
+        })
+      } 
+
+      console.log('user exists already');
+      
+  
+    };
+    if(user) {
+      findAndCreateUser()
+    }
+  }, [user]);
+
+  
+
   const userNavigation = [
     { name: 'Your Profile', href: '#' },
     { name: 'Settings', href: '#' },
@@ -42,6 +71,11 @@ export default function Admin({ children }) {
             <span className="sr-only">Open sidebar</span>
             <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
           </button>
+
+          <div className="flex flex-col justify-center">
+            {/* {user ? <h1>Hello {user.given_name} </h1> : <h1>Hello buddy </h1>} */}
+            Welcome to Articool
+          </div>
           <div className="flex-1 px-4 py-4 flex justify-end">
             <div className="flex">
               <form className="w-full flex md:ml-0" action="#" method="GET">
@@ -63,11 +97,6 @@ export default function Admin({ children }) {
               </form>
             </div>
             <div className="ml-4 flex items-center md:ml-6">
-              <button className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                <span className="sr-only">View notifications</span>
-                <BellIcon className="h-6 w-6" aria-hidden="true" />
-              </button>
-
               {/* Profile dropdown */}
               <Menu as="div" className="ml-3 relative">
                 {({ open }) => (
@@ -75,11 +104,7 @@ export default function Admin({ children }) {
                     <div>
                       <Menu.Button className="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         <span className="sr-only">Open user menu</span>
-                        <img
-                          className="h-8 w-8 rounded-full"
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                          alt=""
-                        />
+                        {user ? user.given_name[0] : ""}
                       </Menu.Button>
                     </div>
                     <Transition
@@ -127,3 +152,5 @@ export default function Admin({ children }) {
     </div>
   );
 }
+
+
