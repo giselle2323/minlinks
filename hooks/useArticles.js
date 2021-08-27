@@ -9,7 +9,18 @@ export const fetchArticlesIdeas = async () => {
     body, 
     tag, 
     links,
-    users:authorId(id, name)
+    authorId(id, name),
+    comments(
+      id, 
+      body,
+      userId(id, name)
+    ),
+    likes(
+      id,
+      postId,
+      userId(id, name)
+    )
+
   `)
   
   if(error) {

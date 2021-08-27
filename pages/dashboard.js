@@ -6,16 +6,23 @@ import Admin from "../layouts/Admin";
 import ArticleCard from "../components/Cards/Card";
 export default function Dashboard () {
     const { data: articlesIdeas } = useQuery('articlesIdeas', fetchArticlesIdeas);
-    console.log(articlesIdeas)
+    console.log(articlesIdeas.map(idea => (
+      console.log(idea)
+    )))
 
     return (
     <main className="flex flex-col w-full">
-        <div>beans</div>
-        {/* <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {cards.map(card => (
-                <ArticleCard key={card.id} />
+        <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {articlesIdeas.map(({title, id, body, comments, likes}) => (
+                <ArticleCard 
+                  key={id}  
+                  title={title} 
+                  body={body}
+                  comments={comments}
+                  likes={likes}
+                />
             ))}
-        </ul> */}
+        </ul>
     </main>
     )
 }
