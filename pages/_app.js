@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {themeChange} from "theme-change"
 import {
   QueryClientProvider, QueryClient
  } from 'react-query'
@@ -8,7 +9,10 @@ import { UserProvider } from '@auth0/nextjs-auth0';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
-  const [queryClient] = React.useState(() => new QueryClient())
+  const [queryClient] = React.useState(() => new QueryClient());
+  useEffect(() => {
+    themeChange(false)
+  }, []);
   const { user } = pageProps;
   const Layout = Component.layout || (({ children }) => <>{children}</>);
   return (

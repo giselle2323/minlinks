@@ -1,7 +1,7 @@
 import { supabase } from '../utils/supabase'
 
 export const fetchArticlesIdeas = async () => {
-  const { data:posts, error } = await supabase
+  const { data:posts, error, count} = await supabase
   .from('posts')
   .select(`
     id, 
@@ -9,7 +9,7 @@ export const fetchArticlesIdeas = async () => {
     body, 
     tag, 
     links,
-    authorId(id, name),
+    authorId(id, name, email),
     comments(
       id, 
       body,
@@ -20,13 +20,13 @@ export const fetchArticlesIdeas = async () => {
       postId,
       userId(id, name)
     )
-
-  `)
+  `, { count: 'exact' })
+  .range(0,19)
   
   if(error) {
     throw new Error(error.message)
   }
 
-  return posts;
+  return {posts, count};
 }
   

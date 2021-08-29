@@ -61,20 +61,20 @@ export default function Admin({ children }) {
     <div className="h-screen flex overflow-hidden font-sans">
       
       <Sidebar setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen} />
-      <div className="flex flex-col w-full flex-1 overflow-hidden bg-blue-light_400">
+      <div className="flex flex-col w-full flex-1 overflow-hidden dark:bg-dark-700 p-3">
         <div className="relative z-10 flex-shrink-0 flex h-16">
           <button
             type="button"
-            className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
+            className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 lg:hidden"
             onClick={() => setSidebarOpen(true)}
           >
             <span className="sr-only">Open sidebar</span>
             <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
           </button>
 
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center px-4">
             {/* {user ? <h1>Hello {user.given_name} </h1> : <h1>Hello buddy </h1>} */}
-            Welcome to Articool
+            Dashboard
           </div>
           <div className="flex-1 px-4 py-4 flex justify-end">
             <div className="flex">

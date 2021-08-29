@@ -2,8 +2,15 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   mode: '',
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  purge:{
+    content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+    options: {
+      safelist: [
+        /data-theme$/,
+      ]
+    },
+  },
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
@@ -18,6 +25,9 @@ module.exports = {
         gray:{
           700: '#707EAE',
          
+        },
+        dark: {
+          '700': '#0e182a'
         }
       }
     },
@@ -28,5 +38,12 @@ module.exports = {
   plugins: [
       // ...
     require('@tailwindcss/forms'),
+    require('daisyui'),
   ],
+  daisyui: {
+    themes: [
+      'dark', // first one will be the default theme
+      'light',
+    ],
+  }
 }
