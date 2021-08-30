@@ -18,15 +18,15 @@ export const fetchArticlesIdeas = async () => {
     likes(
       id,
       postId,
-      userId(id, name)
+      userId(id, name, email)
+    ),
+    bookmarks(
+      id,
+      postId,
+      userId(id, name, email)
     )
   `, { count: 'exact' })
-  .range(0,19)
   
-  if(error) {
-    throw new Error(error.message)
-  }
-
-  return {posts, count};
+  return {posts, count, error};
 }
   

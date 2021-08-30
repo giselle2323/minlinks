@@ -6,23 +6,19 @@ async function findUser (user) {
 
   const { data } = await supabase
   .from('users')
-  .select('email')
-  .filter('email', 'eq', req.user.email);
-  
-  if(error) {
-    throw new Error(error.message)
-  }
+  .select(`
+  id,
+  email
+  `)
+  .filter('email', 'eq', user.email)
+  .single()
 
-  return data;
+  return {data, error};
 
 };
 
 const useFindUser = user => {
-  return useQuery(['user', user], () => fetchPosts(user))
+  return useQuery(['user', user], () => findUser(user))
 }
 
 export  {findUser, useFindUser};
-
-
-
-
