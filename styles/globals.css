@@ -1,5 +1,28 @@
-/* ./styles/globals.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-default: #0e182a;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-default: #0e182a;
+  }
+}
+[data-theme="light"] {
+  --color-default: #fff;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  background-color: var(--color-default);
+  height: 100%;
+}
+
+.custom-modal {
+  background-color: var(--color-default) !important;
+}
