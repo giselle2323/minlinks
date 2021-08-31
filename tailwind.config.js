@@ -10,11 +10,11 @@ module.exports = {
       ]
     },
   },
-  darkMode: 'media', // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        'ibm': ['IBM Plex Mono', 'monospace']
       },
       colors: {
         blue: {
@@ -31,22 +31,20 @@ module.exports = {
           '500': '#142035'
         },
         green: {
-          'transparent': '#17CB49'
+          'transparent': '#17CB49',
+          'gradient': 'linear-gradient(#4DB68D, #8CC3AE)',
+          'grad-one': '#4DB68D',
+          'grad-two':' #8CC3AE'
         }
       }
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      display: ['dark']
+    },
   },
   plugins: [
-    require('@tailwindcss/custom-forms'),
-    require('daisyui'),
-  ],
-  daisyui: {
-    themes: [
-      'dark', // first one will be the default theme
-      'light',
-    ],
-  }
+    require('@tailwindcss/custom-forms')
+  ]
 }
