@@ -27,7 +27,11 @@ module.exports = {
          
         },
         dark: {
-          '700': '#0e182a'
+          '700': '#0e182a',
+          '500': '#142035'
+        },
+        green: {
+          'transparent': '#17CB49'
         }
       }
     },

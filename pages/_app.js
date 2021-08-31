@@ -34,7 +34,6 @@ function MyApp({ Component, pageProps }) {
             draggable
             pauseOnHover
           />
-          <ReactQueryDevtools initialIsOpen={true} />
         </Hydrate>
       </QueryClientProvider>
     </UserProvider>
