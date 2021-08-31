@@ -5,6 +5,7 @@ import { supabase } from "../utils/supabase";
 import Link from "next/link";
 import AddPost from "../components/Modals/AddPostModal";
 import { SupabaseUserProvider } from "../context/userContext";
+import AdminNavbar from "../components/Navbars/AdminNavbar";
 
 export default function Admin({ children }) {
   const [showAddPostModal, setShowAddPostModal] = useState(false);
@@ -40,9 +41,7 @@ export default function Admin({ children }) {
 
   const submitPost = async (values) => {
     // setLoading(true);
-    const {error } = await supabase
-      .from("posts")
-      .insert([values]);
+    const { error } = await supabase.from("posts").insert([values]);
 
     if (error) {
       toast.error("An error occured, kindly try again");
@@ -52,33 +51,10 @@ export default function Admin({ children }) {
 
   return (
     <main className="flex flex-col w-full h-full">
-      <div className="flex overflow-hidden font-sans container">
-        <div className="flex flex-col w-full flex-1 overflow-hidden dark:bg-dark-700">
-          <div className="relative z-10 flex-shrink-0  border-b border-gray-800 flex h-16">
-            <div className="flex flex-col justify-center px-4">
-              <h1 className="text-2xl">Hello {user ? user.name : "buddy"}</h1>
-            </div>
-            <div className="flex-1 px-4 py-4 flex justify-end">
-              {author.length > 0 ? (
-                <button
-                  onClick={toggleModal}
-                  className="text-center text-white border border-blue-800 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg m-3"
-                >
-                  New Post
-                </button>
-              ) : (
-                <button
-                  onClick={() => router.push("/api/auth/login")}
-                  className="text-center text-white border border-blue-800 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg m-3"
-                >
-                  Login
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
+      <div className="flex overflow-hidden font-sans container mx-auto">
+        <AdminNavbar author={author} />
       </div>
-      <div className="flex justify-end py-4 container">
+      <div className="flex justify-end container mx-auto">
         {showAddPostModal && (
           <AddPost
             open={showAddPostModal}
@@ -88,7 +64,7 @@ export default function Admin({ children }) {
           />
         )}
       </div>
-      <div className="flex-col">
+      <div className="flex-col container mx-auto">
         <div className="flex">
           <ul className="flex">
             <li className="m-3">

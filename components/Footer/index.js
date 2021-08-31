@@ -1,15 +1,11 @@
-import React from "react";
-import Link from "next/link";
-import useDarkMode from "../../hooks/useDarkMode.js";
-export default function LandingNavbar() {
-  const [colorTheme, setTheme] = useDarkMode();
+import Link from 'next/link';
+export default function Footer() {
   return (
-    <>
-      <div className="container mx-auto items-center">
-        <div className="transition duration-500 ease-in-out transform my-2 ">
-          <div className="flex flex-row items-center  flex-wrap p-5 w-full lg:flex-row">
-            <Link href="/">
-              <a className="justify-center flex-1 focus:outline-none md:ml-auto md:mr-auto">
+    <div className="container mx-auto items-center my-5">
+      <footer className="text-blueGray-700 transition duration-500 ease-in-out transform  rounded-lg ">
+        <div className="flex flex-col flex-wrap p-5 mx-auto md:items-center md:flex-row">
+        <Link href="/">
+              <a className="">
                 <svg
                   width="169"
                   height="53"
@@ -37,48 +33,95 @@ export default function LandingNavbar() {
                 </svg>
               </a>
             </Link>
-            <button className="w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-dark-700 dark:text-white transition duration-500 ease-in-out transform border border-green-500 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">
-              Login{" "}
-            </button>
-            <div>
-            {colorTheme === "light" ? (
-              <svg
-                onClick={() => setTheme("light")}
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="#ffffff"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                />
-              </svg>
-            ) : (
-              <svg
-                onClick={() => setTheme("dark")}
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                />
-              </svg>
-            )}
-            </div>
+          
+          <nav className="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto">
+            {/* <a
+              href="#"
+              className="px-4 py-1 mr-1 text-base text-dark-700 dark:text-white transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black "
+            >
+              Pricing
+            </a>
+            <a
+              href="#"
+              className="px-4 py-1 mr-1 text-base text-dark-700 dark:text-white transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black "
+            >
+              Contact
+            </a>
+            <a
+              href="#"
+              className="px-4 py-1 mr-1 text-base text-dark-700 dark:text-white transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black "
+            >
+              Services
+            </a>
+            <a
+              href="#"
+              className="px-4 py-1 mr-1 text-base text-dark-700 dark:text-white transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black "
+            >
+              Now
+            </a> */}
+            <p className="text-center px-4 py-1 mr-1  text-xl text-dark-700 dark:text-white">Made with ❤️ by Aminat  </p>
+            <p className="text-center px-4 py-1 mr-1  text-xl text-dark-700 dark:text-white">2021 </p>
             
-          </div>
+          </nav>
+          <span className="inline-flex justify-center mt-2 mr-2 sm:ml-auto sm:mt-0 sm:justify-start">
+            <a className="text-blue-500 hover:text-black">
+              <svg
+                fill="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+              </svg>
+            </a>
+            <a className="ml-3 text-blue-500 hover:text-black">
+              <svg
+                fill="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+              </svg>
+            </a>
+            <a className="ml-3 text-blue-500 hover:text-black">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+              </svg>
+            </a>
+            <a className="ml-3 text-blue-500 hover:text-black">
+              <svg
+                fill="currentColor"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="0"
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="none"
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                ></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+              </svg>
+            </a>
+          </span>
         </div>
-      </div>
-    </>
+      </footer>
+    </div>
   );
 }
