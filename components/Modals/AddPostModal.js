@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Modal } from "react-responsive-modal";
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 import { Formik, Field, Form } from "formik";
 
-export default function AddPost({ open, onCloseModal, author, submitPost }) {
-    console.log(author[0].id)
+export default  withPageAuthRequired( function AddPost({ open, onCloseModal, author, submitPost }) {
+
     const router = useRouter()
   return (
     <Modal
@@ -123,4 +124,4 @@ export default function AddPost({ open, onCloseModal, author, submitPost }) {
       </div>
     </Modal>
   );
-}
+})

@@ -26,3 +26,6 @@ body {
 .custom-modal {
   background-color: var(--color-default) !important;
 }
+#__next {
+    height: 100%;
+}

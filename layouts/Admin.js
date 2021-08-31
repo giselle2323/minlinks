@@ -39,17 +39,19 @@ export default function Admin({ children }) {
   };
 
   const submitPost = async (values) => {
-    const { data, error, isLoading } = await supabase
+    // setLoading(true);
+    const {error } = await supabase
       .from("posts")
       .insert([values]);
 
     if (error) {
       toast.error("An error occured, kindly try again");
     }
+    window.location.reload();
   };
 
   return (
-    <main className="flex flex-col w-full">
+    <main className="flex flex-col w-full h-full">
       <div className="flex overflow-hidden font-sans container">
         <div className="flex flex-col w-full flex-1 overflow-hidden dark:bg-dark-700">
           <div className="relative z-10 flex-shrink-0  border-b border-gray-800 flex h-16">
