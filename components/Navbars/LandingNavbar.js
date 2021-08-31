@@ -37,10 +37,8 @@ export default function LandingNavbar() {
                 </svg>
               </a>
             </Link>
-            <button className="w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-dark-700 dark:text-white transition duration-500 ease-in-out transform border border-green-500 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">
-              Login{" "}
-            </button>
-            <div>
+           
+            <div className="mx-3">
             {colorTheme === "light" ? (
               <svg
                 onClick={() => setTheme("light")}
@@ -75,7 +73,9 @@ export default function LandingNavbar() {
               </svg>
             )}
             </div>
-            
+            <Link href='/api/auth/login'>
+              <a className="w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-dark-700 dark:text-white transition duration-500 ease-in-out transform border border-green-500 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">Login</a>
+            </Link>
           </div>
         </div>
       </div>
