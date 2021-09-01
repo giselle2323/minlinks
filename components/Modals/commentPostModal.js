@@ -6,7 +6,7 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { Formik, Field, Form } from "formik";
 import Loader from "../Loader/loader";
 
-export default withPageAuthRequired(function CommenPostModal({
+export default withPageAuthRequired(function CommentPostModal({
   open,
   onCloseModal,
   author,
