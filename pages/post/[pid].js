@@ -151,7 +151,7 @@ const Post = ({ post }) => {
                   </p>
                 </div>
               </div>
-              <p className="mb-8 leading-relaxed text-xl  normal-case font-light">
+              <p className="mb-8 leading-relaxed text-xl normal-case font-normal">
                 {post.body}
               </p>
               {post.links ? (
@@ -166,7 +166,7 @@ const Post = ({ post }) => {
                   <h3 className="text-xl my-2">Comments</h3>
                   {globalAuthor ? (
                     <button
-                      className="border border-white rounded p-2 m-2"
+                      className="border border-dark-700 dark:border-white rounded p-2 m-2"
                       onClick={togglePostCommentModal}
                     >
                       Add Comment
@@ -201,7 +201,7 @@ const Post = ({ post }) => {
                 ) : (
                   <div className="border border-gray-800 px-3 py-4 mb-3 dark:bg-dark-500">
                     <p className="text-base py-2 font-light">
-                      There is no comment on this post yet{" "}
+                      There are no comment on this post yet{" "}
                     </p>
                   </div>
                 )}
