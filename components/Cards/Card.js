@@ -51,7 +51,7 @@ export default function ArticleCard({
         </div>
         <div className="flex flex-col flex-1">
           {" "}
-          <p className="font-light font-mono text-sm text-gray-700 hover:text-gray-900 transition-all duration-200 flex-1 truncate">
+          <p className="font-light font-mono text-sm text-dark-700 dark:text-white dark:text-opacity-30 hover:text-gray-900 transition-all duration-200 flex-1 truncate">
             {body}
           </p>
         </div>

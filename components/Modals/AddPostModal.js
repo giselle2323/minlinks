@@ -41,7 +41,7 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                 <div className="mb-6">
                   <label
                     htmlFor="title"
-                    className="block mb-2 text-sm text-gray-600 text-lg font-medium dark:text-gray-400"
+                    className="block mb-3 text-sm text-dark-700 text-lg font-medium "
                   >
                     Title
                   </label>
@@ -49,13 +49,13 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                     id="title"
                     name="title"
                     placeholder="Supabase Tutorial"
-                    className="w-full px-3 py-4 placeholder-gray-200 border text-lg font-medium border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 bg-transparent dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                    className="w-full px-3 mb-3 py-4 text-dark-700 placeholder-gray-300 border text-lg font-normal border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-dark-700 bg-transparent"
                   />
                 </div>
                 <div className="mb-6">
                   <label
                     htmlFor="body"
-                    className="block mb-2 text-sm text-gray-600 text-lg font-medium dark:text-gray-400"
+                    className="block mb-3 text-sm text-dark-700 text-lg font-medium "
                   >
                     Description
                   </label>
@@ -65,13 +65,13 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                     id="body"
                     name="body"
                     placeholder="A post that tell if if a ball is red or yellow"
-                    className="w-full px-3 py-4 h-48 bg-transparent placeholder-gray-200 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-gray-900 focus:border-gray-900 dark:placeholder-gray-500   overscroll-y-auto"
+                    className="w-full mb-3 text-dark-700 px-3 py-4 h-48 bg-transparent placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-dark-700  overscroll-y-auto"
                   />
                 </div>
                 <div className="mb-6">
                   <label
                     htmlFor="tag"
-                    className="block mb-2  text-sm text-gray-600 text-lg font-medium dark:text-gray-400"
+                    className="block mb-3  text-sm text-dark-700 text-lg font-medium"
                   >
                     Tag
                   </label>
@@ -80,7 +80,7 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                     id="tag"
                     name="tag"
                     as="select"
-                    className="py-4 px-2 bg-transparent text-gray-600 border border-gray-800 w-full max-w-xs rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                    className="py-4 mb-3 px-2 bg-transparent text-dark-700 border border-gray-800 w-full max-w-xs rounded-md focus:outline-none focus:ring focus:ring-dark-700 "
                   >
                     <option>
                       Choose article tag
@@ -94,7 +94,7 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                 <div className="mb-6">
                   <label
                     htmlFor="links"
-                    className="block mb-2 text-sm text-gray-600 text-lg font-medium dark:text-gray-400"
+                    className="block mb-3 text-sm text-dark-700 text-lg font-medium"
                   >
                     Links (optional)
                   </label>
@@ -102,7 +102,7 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                     id="links"
                     name="links"
                     placeholder="https://dribbble.com"
-                    className="w-full px-3 py-2 placeholder-gray-200 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 bg-transparent dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                    className="w-full px-3 mb-3 text-dark-700 py-2 bg-transparent placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-dark-700 "
                   />
                 </div>
                 <div className="mb-6">
