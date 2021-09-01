@@ -20,7 +20,7 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
         <div className=" my-10 mx-auto rounded-md shadow-sm">
           <div className="text-center">
             <h1 className="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
-              <h2>Post An Idea</h2>
+              <h2 className="text-dark-700 mb-2">Post An Idea</h2>
             </h1>
           </div>
           <div>
@@ -49,7 +49,7 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                     id="title"
                     name="title"
                     placeholder="Supabase Tutorial"
-                    className="w-full px-3 py-4 placeholder-gray-300 border text-lg font-medium border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 bg-transparent dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                    className="w-full px-3 py-4 placeholder-gray-200 border text-lg font-medium border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 bg-transparent dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                   />
                 </div>
                 <div className="mb-6">
@@ -65,7 +65,7 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                     id="body"
                     name="body"
                     placeholder="A post that tell if if a ball is red or yellow"
-                    className="w-full px-3 py-4 h-48 bg-transparent placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                    className="w-full px-3 py-4 h-48 bg-transparent placeholder-gray-200 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-gray-900 focus:border-gray-900 dark:placeholder-gray-500   overscroll-y-auto"
                   />
                 </div>
                 <div className="mb-6">
@@ -80,7 +80,7 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                     id="tag"
                     name="tag"
                     as="select"
-                    className="py-4 px-2 bg-transparent border border-gray-800 w-full max-w-xs rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                    className="py-4 px-2 bg-transparent text-gray-600 border border-gray-800 w-full max-w-xs rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                   >
                     <option>
                       Choose article tag
@@ -102,7 +102,7 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                     id="links"
                     name="links"
                     placeholder="https://dribbble.com"
-                    className="w-full px-3 py-2 placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 bg-transparent dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                    className="w-full px-3 py-2 placeholder-gray-200 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 bg-transparent dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                   />
                 </div>
                 <div className="mb-6">
