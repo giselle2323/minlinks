@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from 'next/link';
 import useDarkMode from "../hooks/useDarkMode";
-import memoji from "../public/memoji.svg";
-import lightMemoji from "../public/light-memoji.svg";
+import memoji from "../public/hero-dark.svg";
+import lightMemoji from "../public/hero-light.svg";
 export default function Hero() {
   const [colorTheme, setTheme] = useDarkMode();
   return (

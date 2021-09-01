@@ -37,9 +37,9 @@ export default function Landing({pageTitle, description}) {
         </div>
         <section className="container mx-auto text-gray-600 body-font mt-4">
           <div className="container px-5 py-24 mx-auto">
-            <div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+            <div className="flex flex-wrap w-full mb-8 flex-col items-center text-center">
               <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 font-ibm text-dark-700 dark:text-white">
-                Engage on Articool
+                How to Engage on Articool
               </h1>
             </div>
             <div className="flex flex-wrap -m-4">
@@ -52,8 +52,7 @@ export default function Landing({pageTitle, description}) {
                     </h2>
                   </div>
                   <p className="leading-relaxed text-base text-dark-700 dark:text-white dark:text-opacity-30 px-3">
-                    Fingerstache flexitarian street art 8-bit waist co, subway
-                    tile poke farm.
+                    Suggest an article by creating a post. Other get to see what you have created and upvote.
                   </p>
                 </div>
               </div>
@@ -66,8 +65,7 @@ export default function Landing({pageTitle, description}) {
                     </h2>
                   </div>
                   <p className="leading-relaxed text-base text-dark-700 dark:text-white dark:text-opacity-30 px-3">
-                    Fingerstache flexitarian street art 8-bit waist co, subway
-                    tile poke farm.
+                    Save any article you find interesting to your bookmarks
                   </p>
                 </div>
               </div>
@@ -80,8 +78,7 @@ export default function Landing({pageTitle, description}) {
                     </h2>
                   </div>
                   <p className="leading-relaxed text-base text-dark-700 dark:text-white dark:text-opacity-30 px-3">
-                    Fingerstache flexitarian street art 8-bit waist co, subway
-                    tile poke farm.
+                    Fine tune an idea by editing.
                   </p>
                 </div>
               </div>
@@ -94,8 +91,7 @@ export default function Landing({pageTitle, description}) {
                     </h2>
                   </div>
                   <p className="leading-relaxed text-base text-dark-700 dark:text-white dark:text-opacity-30 px-3">
-                    Fingerstache flexitarian street art 8-bit waist co, subway
-                    tile poke farm.
+                    Like other people&apos;s ideas and you get to see ideas that have the most votes.
                   </p>
                 </div>
               </div>
@@ -108,8 +104,7 @@ export default function Landing({pageTitle, description}) {
                     </h2>
                   </div>
                   <p className="leading-relaxed text-base text-dark-700 dark:text-white dark:text-opacity-30 px-3">
-                    Fingerstache flexitarian street art 8-bit waist co, subway
-                    tile poke farm.
+                    Let others know what you think by commenting on their posts
                   </p>
                 </div>
               </div>
@@ -122,8 +117,7 @@ export default function Landing({pageTitle, description}) {
                     </h2>
                   </div>
                   <p className="leading-relaxed text-base text-dark-700 dark:text-white dark:text-opacity-30 px-3">
-                    Fingerstache flexitarian street art 8-bit waist co, subway
-                    tile poke farm.
+                    Share an article with anyone by clicking to copy.
                   </p>
                 </div>
               </div>
