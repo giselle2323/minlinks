@@ -12,21 +12,18 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
       open={open}
       onClose={onCloseModal}
       classNames={{
-        overlay: "customOverlay",
         modal: "custom-modal",
+
       }}
     >
-      <div className="flex items-center  bg-gray-5">
-        <div className="max-w-md mx-auto my-10 p-5 rounded-md shadow-sm">
+      <div className="flex items-center w-full  bg-gray-5">
+        <div className=" my-10 mx-auto rounded-md shadow-sm">
           <div className="text-center">
             <h1 className="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
               <h2>Post An Idea</h2>
             </h1>
-            <p className="text-gray-400 dark:text-gray-400">
-              Fill up the form below to send us a message.
-            </p>
           </div>
-          <div className="m-7">
+          <div>
             <Formik
               initialValues={{
                 title: "",
@@ -40,11 +37,11 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                 router.push('/dashboard');
               }}
             >
-              <Form>
+              <Form className="px-5">
                 <div className="mb-6">
                   <label
                     htmlFor="title"
-                    className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                    className="block mb-2 text-sm text-gray-600 text-lg font-medium dark:text-gray-400"
                   >
                     Title
                   </label>
@@ -52,13 +49,13 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                     id="title"
                     name="title"
                     placeholder="Supabase Tutorial"
-                    className="w-full px-3 py-2 placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 bg-transparent dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                    className="w-full px-3 py-4 placeholder-gray-300 border text-lg font-medium border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 bg-transparent dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                   />
                 </div>
                 <div className="mb-6">
                   <label
                     htmlFor="body"
-                    className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                    className="block mb-2 text-sm text-gray-600 text-lg font-medium dark:text-gray-400"
                   >
                     Description
                   </label>
@@ -68,13 +65,13 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                     id="body"
                     name="body"
                     placeholder="A post that tell if if a ball is red or yellow"
-                    className="w-full px-3 py-2 bg-transparent placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                    className="w-full px-3 py-4 h-32 bg-transparent placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                   />
                 </div>
                 <div className="mb-6">
                   <label
                     htmlFor="tag"
-                    className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                    className="block mb-2  text-sm text-gray-600 text-lg font-medium dark:text-gray-400"
                   >
                     Tag
                   </label>
@@ -83,7 +80,7 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                     id="tag"
                     name="tag"
                     as="select"
-                    className="select bg-transparent border border-gray-800 w-full max-w-xs"
+                    className="py-4 px-2 bg-transparent border border-gray-800 w-full max-w-xs rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                   >
                     <option>
                       Choose article tag
@@ -97,14 +94,14 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                 <div className="mb-6">
                   <label
                     htmlFor="links"
-                    className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                    className="block mb-2 text-sm text-gray-600 text-lg font-medium dark:text-gray-400"
                   >
                     Links (optional)
                   </label>
                   <Field
                     id="links"
                     name="links"
-                    placeholder="http://love.com"
+                    placeholder="https://dribbble.com"
                     className="w-full px-3 py-2 placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 bg-transparent dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                   />
                 </div>
@@ -112,7 +109,7 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                   <Field type="hidden" id="authorId" name="authorId" />
                   <button
                     type="submit"
-                    className="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none"
+                    className="w-full px-3 py-4 text-white bg-green-transparent rounded-md focus:bg-indigo-600 focus:outline-none"
                   >
                     Submit Post
                   </button>

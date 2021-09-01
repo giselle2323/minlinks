@@ -13,7 +13,7 @@ body {
 }
 
 .custom-modal {
-  background-color: var(--color-default) !important;
+  background-color: #0e182a;
 }
 #__next {
     height: 100vh;

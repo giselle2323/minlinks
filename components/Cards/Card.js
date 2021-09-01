@@ -24,9 +24,6 @@ export default function ArticleCard({
   const [bookmarked, setBookmarked] = useState(false);
 
   useEffect(() => {
-    // if (user && user.email === author.email) {
-    //   setLiked(true);
-    // }
     if (user) {
       const lik = likes.filter((ik) => ik.userId.email === user.email);
       const bookmrk = bookmarks.filter((bk) => bk.userId.email === user.email);
@@ -35,73 +32,39 @@ export default function ArticleCard({
     }
   }, [user, bookmarks, likes]);
 
-  // const clickLike = async (id, author) => {
-  //   if (user) {
-  //     setLiked(!liked);
-  //     setLikes(liked ? likesCount - 1 : likesCount + 1);
-  //     liked ? removelike(id) : addLike(id, author);
-  //   } else {
-  //     router.push("/api/auth/login");
-  //   }
-  // };
-
-  // const bookmarkPost = async (id, author) => {
-  //   if (user) {
-  //     setBookmarked(!bookmarked);
-  //     bookmarked ? removeBookmark(id) : addBookmark(id, author);
-  //   } else {
-  //     router.push("/api/auth/login");
-  //   }
-  // };
-
-  // const addLike = async (id, author) => {
-  //   const { data, error } = await supabase
-  //     .from("likes")
-  //     .insert([{ postId: id, userId: author.id }]);
-  // };
-
-  // const removelike = async (id) => {
-  //   const { data, error } = await supabase
-  //     .from("likes")
-  //     .delete()
-  //     .eq("postId", id);
-  // };
-
-  // const addBookmark = async (id, author) => {
-  //   const { data, error } = await supabase
-  //   .from("bookmarks")
-  //   .insert([{ postId: id, userId: author.id }]);
-  // }
-
-  // const removeBookmark = async (id) => {
-  //   const { data, error } = await supabase
-  //     .from("bookmarks")
-  //     .delete()
-  //     .eq("postId", id);
-  // };
-
   return (
-    <div onClick={() => router.push(`/post/${id}`)} className="card m-2 cursor-pointer  border border-gray-800 rounded-lg hover:shadow-md hover:border-opacity-0 transform hover:-translate-y-1 transition-all duration-200">
+    <div
+      onClick={() => router.push(`/post/${id}`)}
+      className="card m-2 cursor-pointer flex flex-col  border border-gray-800 rounded-lg transform hover:-translate-y-1 transition-all duration-200"
+    >
       <div className="m-3 flex flex-col flex-1">
-        <h2 className="text-lg mb-2">
-          {title}
-          <span className="text-sm text-teal-800 font-mono bg-green-500 inline rounded-full px-2 align-top float-right animate-pulse">
-            {tag}
-          </span>
-        </h2>
-        <p className="font-light font-mono text-sm text-gray-700 hover:text-gray-900 transition-all duration-200 flex-1">
-          {body}
-        </p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-lg lg:mb-2 mr-3">{title}</h2>
+          </div>
+          <div>
+            {" "}
+            <span className="text-sm text-teal-800 font-mono bg-green-transparent bg-opacity-75 inline rounded px-2 align-top float-right">
+              {tag}
+            </span>
+          </div>
+        </div>
+        <div className="flex flex-col flex-1">
+          {" "}
+          <p className="font-light font-mono text-sm text-gray-700 hover:text-gray-900 transition-all duration-200 flex-1 truncate">
+            {body}
+          </p>
+        </div>
       </div>
-      <div className="m-3">
+      <div className="m-3 flex items-center">
         <span
-          onClick={() => router.push(`/post/${id}`)} 
-          className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+          onClick={() => router.push(`/post/${id}`)}
+          className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0  leading-none text-sm pr-3 py-1"
         >
           {liked ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-6 w-6"
               viewBox="0 0 20 20"
               fill="#C96073"
             >
@@ -130,7 +93,7 @@ export default function ArticleCard({
 
           {likesCount > 0 ? likesCount : ""}
         </span>
-        <span className="text-gray-400 inline-flex items-center leading-none text-sm">
+        <span className="text-gray-400 inline-flex items-center leading-none text-sm mr-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -147,11 +110,14 @@ export default function ArticleCard({
           </svg>
           {comments.length ? comments.length : ""}
         </span>
-        <span onClick={() => router.push(`/post/${id}`)} className="text-gray-400 inline-flex items-center leading-none text-sm">
+        <span
+          onClick={() => router.push(`/post/${id}`)}
+          className="text-gray-400 inline-flex items-center leading-none text-sm"
+        >
           {bookmarked ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-6 w-6"
               viewBox="0 0 20 20"
               fill="currentColor"
             >

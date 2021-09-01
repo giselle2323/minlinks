@@ -7,7 +7,7 @@ export default function Footer() {
         <Link href="/">
               <a className="">
                 <svg
-                  width="169"
+                  width="140"
                   height="53"
                   viewBox="0 0 169 53"
                   fill="none"

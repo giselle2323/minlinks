@@ -42,7 +42,6 @@ export default withPageAuthRequired(function EditPostModal({
           open={open}
           onClose={onCloseModal}
           classNames={{
-            overlay: "customOverlay",
             modal: "custom-modal",
           }}
         >

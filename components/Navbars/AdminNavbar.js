@@ -3,18 +3,16 @@ import Link from "next/link";
 export default function AdminNavbar({ author }) {
   const [toggle, setToggleNavbar] = useState(false);
 
-  const toggleNavbar = () => {
-    setToggleNavbar(!toggle);
-  };
+
   return (
     <>
       <div className="container mx-auto items-center">
-        <div className="transition duration-500 ease-in-out transform my-2 ">
-          <div className="flex flex-row  flex-wrap p-5 w-full lg:flex-row">
+        <div>
+          <div className="flex flex-row justify-between flex-wrap p-2 md:p-5 w-full lg:flex-row">
             <Link href="/">
               <a className="justify-center flex-1 focus:outline-none md:ml-auto md:mr-auto">
                 <svg
-                  width="169"
+                  width="140"
                   height="53"
                   viewBox="0 0 169 53"
                   fill="none"
@@ -40,33 +38,15 @@ export default function AdminNavbar({ author }) {
                 </svg>
               </a>
             </Link>
-            <button className="block lg:hidden" onClick={toggleNavbar}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
 
             <>
               {author ? (
-                <div className="lg:flex hidden lg:flex-row flex-1 justify-end">
-                  <button className="w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md  focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:b-gblue-700 ">
-                    Logout{" "}
-                  </button>
-
-                  <button className="w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md  focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:b-gblue-700 ">
-                    New Post{" "}
-                  </button>
+                <div className="lg:flex lg:flex-row justify-end items-center">
+                  <Link href="/api/auth/logout">
+                    <a className="block w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-dark-700 dark:text-white  transition duration-500 ease-in-out transform bg-transparent border border-dark-700  dark:border-white rounded-md">
+                      Logout
+                    </a>
+                  </Link>
                 </div>
               ) : (
                 <button className="w-auto px-8 py-2 my-2 text-base font-medium text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:b-gblue-700 ">
@@ -74,26 +54,6 @@ export default function AdminNavbar({ author }) {
                 </button>
               )}{" "}
             </>
-
-            {toggle && (
-              <>
-                {author ? (
-                  <div className="flex flex-col lg:flex-row flex-1 justify-end">
-                    <button className="w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md  focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:b-gblue-700 ">
-                      Logout{" "}
-                    </button>
-
-                    <button className="w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md  focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:b-gblue-700 ">
-                      New Post{" "}
-                    </button>
-                  </div>
-                ) : (
-                  <button className="w-auto px-8 py-2 my-2 text-base font-medium text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:b-gblue-700 ">
-                    Login{" "}
-                  </button>
-                )}{" "}
-              </>
-            )}
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from 'next/link';
 import useDarkMode from "../hooks/useDarkMode";
 import memoji from "../public/memoji.svg";
 import lightMemoji from "../public/light-memoji.svg";
@@ -13,12 +14,14 @@ export default function Hero() {
             Creating Content for Content Writers
           </h1>
           <p className="mb-8 text-opacity-75 text-dark-700 dark:text-white dark:text-opacity-25 leading-relaxed font-normal  ">
-            Plan, Organize, Collaborate, in every platform, for free.
+            Get inspiration for your next blog post for free.
           </p>
           <div className="flex justify-center">
-            <button className="inline-flex text-white bg-gradient-to-r from-green-grad-one to-green-grad-two border-0 py-2 px-6 focus:outline-none rounded text-lg">
-              Explore
-            </button>
+            <Link href="/dashboard">
+            <a className="inline-flex text-white bg-gradient-to-r from-green-grad-one to-green-grad-two border-0 py-2 px-6 focus:outline-none rounded text-lg">
+               Explore 
+            </a>
+            </Link>
           </div>
         </div>
         <div className="flex flex-col relative">

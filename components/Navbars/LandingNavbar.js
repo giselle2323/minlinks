@@ -1,8 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import useDarkMode from "../../hooks/useDarkMode.js";
-export default function LandingNavbar() {
-  const [colorTheme, setTheme] = useDarkMode();
+import { useTheme } from "next-themes" 
+
+export default function LandingNavbar({switchTheme}) {
+  const { theme } = useTheme(); 
   return (
     <>
       <div className="container mx-auto items-center">
@@ -11,7 +12,7 @@ export default function LandingNavbar() {
             <Link href="/">
               <a className="justify-center flex-1 focus:outline-none md:ml-auto md:mr-auto">
                 <svg
-                  width="169"
+                  width="140"
                   height="53"
                   viewBox="0 0 169 53"
                   fill="none"
@@ -39,9 +40,9 @@ export default function LandingNavbar() {
             </Link>
            
             <div className="mx-3">
-            {colorTheme === "light" ? (
+            {theme === "light" ? (
               <svg
-                onClick={() => setTheme("light")}
+               onClick={() => switchTheme()}
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
                 fill="none"
@@ -57,7 +58,7 @@ export default function LandingNavbar() {
               </svg>
             ) : (
               <svg
-                onClick={() => setTheme("dark")}
+                onClick={() => switchTheme()}
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
                 fill="none"

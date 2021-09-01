@@ -1,13 +1,27 @@
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 import LandingNavbar from "../components/Navbars/LandingNavbar";
 import Hero from "../components/Hero";
 import list from "../public/list-svg.svg";
 import greenList from "../public/list-green.svg";
 import Footer from "../components/Footer";
 export default function Landing() {
+  const { theme, setTheme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const switchTheme = () => {
+    if (isMounted) {
+      setTheme(theme === "light" ? "dark" : "light");
+    }
+  };
   return (
     <section className="flex flex-col w-full bg-white dark:bg-dark-700 ">
-      <LandingNavbar />
+      <LandingNavbar switchTheme={switchTheme} />
       <div className="container mx-auto h-full">
         <Hero />
       </div>
