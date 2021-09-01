@@ -9,7 +9,7 @@ export default handleAuth({
     },
     async logout(req,res) {
         await handleLogout(req, res, {
-            returnTo: "/dashboard"
+            returnTo: "/"
         })
     }
 });
