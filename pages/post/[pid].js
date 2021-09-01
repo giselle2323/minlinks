@@ -18,7 +18,7 @@ const Post = ({ post }) => {
   const globalAuthor = useContext(SupabaseUserContext);
   const { user } = useUser();
   const [liked, setLiked] = useState(false);
-  const [likesCount, setLikes] = useState(post.likes.length);
+  const [likesCount, setLikes] = useState(post.likes.length > 0 ? post.likes.length : 0);
   const [bookmarked, setBookmarked] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [showEditPostModal, setShowEditPostModal] = useState(false);
@@ -349,8 +349,7 @@ const Post = ({ post }) => {
 Post.getInitialProps = async (ctx) => {
   const { data, error } = await supabase
     .from("posts")
-    .select(
-      `
+    .select( `
     id, 
     title, 
     body, 
@@ -376,7 +375,7 @@ Post.getInitialProps = async (ctx) => {
     )
   `
     )
-    .filter("id", "eq", parseInt(Object.values(ctx.query.pid)[0], 10))
+    .filter("id", "eq", Number(ctx.query.pid))
     .single();
 
   return { post: data, error: error };
