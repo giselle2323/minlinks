@@ -44,7 +44,7 @@ export default function Landing({pageTitle, description}) {
             </div>
             <div className="flex flex-wrap -m-4">
               <div className="xl:w-1/3 md:w-1/2 p-4">
-                <div className="p-6 ">
+                <div className="md:p-6">
                   <div className="flex  justify-items-start items-center mb-3">
                     <Image src={list} alt="icon" />
                     <h2 className="text-lg text-dark-700 dark:text-opacity-75 dark:text-white font-medium title-font mb-2">
@@ -52,12 +52,12 @@ export default function Landing({pageTitle, description}) {
                     </h2>
                   </div>
                   <p className="leading-relaxed text-base text-dark-700 dark:text-white dark:text-opacity-30 px-3">
-                    Suggest an article by creating a post. Other get to see what you have created and upvote.
+                    Suggest an article by creating a post. Others get to see what you have created and upvote.
                   </p>
                 </div>
               </div>
               <div className="xl:w-1/3 md:w-1/2 p-4">
-                <div className="p-6 ">
+                <div className="md:p-6">
                   <div className="flex  justify-items-start items-center mb-3">
                     <Image src={greenList} alt="icon" />
                     <h2 className="text-lg text-dark-700 dark:text-opacity-75 dark:text-white font-medium title-font mb-2">
@@ -70,7 +70,7 @@ export default function Landing({pageTitle, description}) {
                 </div>
               </div>
               <div className="xl:w-1/3 md:w-1/2 p-4">
-                <div className="p-6 ">
+                <div className="md:p-6">
                   <div className="flex  justify-items-start items-center mb-3">
                     <Image src={list} alt="icon" />
                     <h2 className="text-lg text-dark-700 dark:text-opacity-75 dark:text-white font-medium title-font mb-2">
@@ -83,7 +83,7 @@ export default function Landing({pageTitle, description}) {
                 </div>
               </div>
               <div className="xl:w-1/3 md:w-1/2 p-4">
-                <div className="p-6 ">
+                <div className="md:p-6">
                   <div className="flex  justify-items-start items-center mb-3">
                     <Image src={greenList} alt="icon" />
                     <h2 className="text-lg text-dark-700 dark:text-opacity-75 dark:text-white font-medium title-font mb-2">
@@ -96,7 +96,7 @@ export default function Landing({pageTitle, description}) {
                 </div>
               </div>
               <div className="xl:w-1/3 md:w-1/2 p-4">
-                <div className="p-6 ">
+                <div className="md:p-6">
                   <div className="flex  justify-items-start items-center mb-3">
                     <Image src={list} alt="icon" />
                     <h2 className="text-lg text-dark-700 dark:text-opacity-75 dark:text-white font-medium title-font mb-2">
@@ -109,7 +109,7 @@ export default function Landing({pageTitle, description}) {
                 </div>
               </div>
               <div className="xl:w-1/3 md:w-1/2 p-4">
-                <div className="p-6 ">
+                <div className="md:p-6">
                   <div className="flex  justify-items-start items-center mb-3">
                     <Image src={greenList} alt="icon" />
                     <h2 className="text-lg text-dark-700 dark:text-opacity-75 dark:text-white font-medium title-font mb-2">
@@ -128,7 +128,7 @@ export default function Landing({pageTitle, description}) {
           <div className="container mx-auto">
             <div className="text-center mx-4 lg:mx-24 rounded-lg flex px-5 py-12 items-center justify-center flex-col bg-transparent border border-dark-700 dark:border-0 dark:bg-dark-500">
               <h1 className="title-font mb-4 sm:text-4xl text-3xl mb-4 font-medium text-dark-700 dark:text-white">
-                Got suggestions on how to make the application better ?
+                Got suggestions on how to make this application better ?
               </h1>
               
               <div className="flex justify-center">
