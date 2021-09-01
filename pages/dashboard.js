@@ -13,27 +13,40 @@ import ArticleCard from "../components/Cards/Card";
 import Loader from "../components/Loader/loader";
 import Admin from "../layouts/Admin";
 export default function Dashboard() {
+  const ref = useRef();
   const author = useContext(SupabaseUserContext);
   const { user, error, loading } = useUser();
   const allPosts = useRef(useQuery("articlesIdeas", fetchArticlesIdeas));
-  const [ideas, setIdeas] = useState(useQuery("articlesIdeas", fetchArticlesIdeas));
+  const [ideas, setIdeas] = useState(
+    useQuery("articlesIdeas", fetchArticlesIdeas)
+  );
 
   const [selectedOption, setSelectedOption] = useState(null);
 
   const router = useRouter();
 
-
   const handleChange = async (selectedOption) => {
-    setSelectedOption(selectedOption);
-    setIdeas(allPosts);
-    const search = ideas.data.posts.filter(post => selectedOption.value.toLowerCase().trim()  === post.tag.toLowerCase().trim())
-    setIdeas({
-        ...ideas, 
-        data: {
-            ...ideas.data, 
-            posts: [...search ]
-        }
-    });
+    if (selectedOption.value.toLowerCase().trim() === "all") {
+      setIdeas(allPosts.current);
+    } else {
+      setSelectedOption(selectedOption);
+      const search = ideas.data.posts.filter(
+        (post) =>
+          selectedOption.value.toLowerCase().trim() ===
+          post.tag.toLowerCase().trim()
+      );
+      if (search.length > 0) {
+        setIdeas({
+          ...ideas,
+          data: {
+            ...ideas.data,
+            posts: [...search],
+          },
+        });
+      } else {
+        setIdeas(allPosts.current);
+      }
+    }
   };
 
   const options = [
@@ -43,17 +56,32 @@ export default function Dashboard() {
     { value: "serverless", label: "Serverless" },
     { value: "other", label: "other" },
   ];
+
+  const customStyles = {
+    
+    menu: (provided, state) => ({
+      ...provided,
+      width: state.selectProps.width,
+      borderBottom: "1px dotted pink",
+      color: "gray",
+      padding: 20,
+    }),
+  };
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col items-end justify-items-end mb-3">
-        <Select
-          value={selectedOption}
-          onChange={handleChange}
-          options={options}
-          isSearchable={true}
-          width="300px"
-          menuColor="transparent"
-        />
+      <div className="flex justify-end px-3 mb-3">
+        <div className="flex items-center">
+          <h3>Filter By:</h3>
+        </div>
+        <div className="flex">
+          <Select
+            value={selectedOption}
+            onChange={handleChange}
+            options={options}
+            isSearchable={true}
+            styles={customStyles}
+          />
+        </div>
       </div>
       <div className="overflow-y-auto">
         <ul
@@ -86,7 +114,7 @@ export default function Dashboard() {
               )
             )
           ) : (
-            <h2 className="text-3xl">No data to display</h2>
+            <h2 className="text-3xl text-center">No data to display</h2>
           )}
         </ul>
       </div>
