@@ -1,21 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useRouter } from "next/router";
 import { supabase } from "../utils/supabase";
 import { SupabaseUserContext } from "../context/userContext";
-import { useUser } from "@auth0/nextjs-auth0";
 import { toast } from "react-toastify";
 import ArticleCard from "../components/Cards/Card";
 import Loader from "../components/Loader/loader";
-import AddPost from "../components/Modals/AddPostModal";
 import Admin from "../layouts/Admin";
 export default function MyIdeas() {
   const author = useContext(SupabaseUserContext);
-  const [bookmarkList, setBookmarks] = useState([]);
+  const [myIdeasList, setMyIdeasList] = useState([]);
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
-    async function fetchBookmarks() {
+    async function fetchMyIdeas() {
       const { data, error } = await supabase
         .from("posts")
         .select(
@@ -44,16 +41,13 @@ export default function MyIdeas() {
           { count: "exact" }
         )
         .filter("authorId", "eq", author.length > 0 ? author[0].id : -1);
-      setBookmarks(data);
-
-      //   bookmarks.error && toast.error("something went wrong");
+      setMyIdeasList(data);
+      setLoading(false);
+      error && toast.error("something went wrong");
     }
-    fetchBookmarks();
-    setLoading(false);
+    fetchMyIdeas();
+    
   }, [author]);
-
-  //   console.log(bookmarkList, author[0].id);
-  //   console.log(bookmarkList);
 
   return (
     <div className="flex flex-col w-full">
@@ -64,8 +58,8 @@ export default function MyIdeas() {
           role="list"
           className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4"
         >
-          {bookmarkList.length > 0 ? (
-            bookmarkList.map(
+          {myIdeasList.length > 0 ? (
+            myIdeasList.map(
               ({
                 id,
                 title,
@@ -90,7 +84,7 @@ export default function MyIdeas() {
               )
             )
           ) : (
-            <h2>YOU HAVE NO posts </h2>
+            <h2 className="text-dark-700 dark:text-white">Hey buddy, you have not created any idea. Click the button above to create one </h2>
           )}
         </ul>
       )}

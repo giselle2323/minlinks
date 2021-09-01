@@ -46,8 +46,6 @@ const Post = ({ post }) => {
     }
   };
 
-  console.log(post);
-
   const toggleModal = () => {
     setShowEditPostModal(!showEditPostModal);
   };
@@ -166,7 +164,7 @@ const Post = ({ post }) => {
                     </div>
                   ))
                 ) : (
-                  <p>No comment on this post yet</p>
+                  <p>There is no comment on this post yet</p>
                 )}
               </div>
             </div>
@@ -281,7 +279,7 @@ const Post = ({ post }) => {
                   </button>
                 </div>
               )}
-              {globalAuthor ? (
+              {globalAuthor.length > 0 ? (
                   <div className=" flex flex-col">
                     <button
                       className="bg-green-transparent bg-opacity-25 text-green-transparent p-3 rounded border-0 m-3"

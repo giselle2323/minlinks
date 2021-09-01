@@ -66,7 +66,7 @@ export default withPageAuthRequired(function EditPostModal({
                     router.push("/my-ideas");
                   }}
                 >
-                  <Form>
+                  <Form className="px-5">
                     <div className="mb-6">
                       <label
                         htmlFor="title"
@@ -78,7 +78,7 @@ export default withPageAuthRequired(function EditPostModal({
                         id="title"
                         name="title"
                         placeholder="Supabase Tutorial"
-                        className="w-full px-3 py-2 placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 bg-transparent dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                        className="w-full px-3 py-4 placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 bg-transparent dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                       />
                     </div>
                     <div className="mb-6">
@@ -94,7 +94,7 @@ export default withPageAuthRequired(function EditPostModal({
                         id="body"
                         name="body"
                         placeholder="A post that tell if if a ball is red or yellow"
-                        className="w-full px-3 py-2 bg-transparent placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                        className="w-full px-3 py-4 h-48 bg-transparent placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                       />
                     </div>
                     <div className="mb-6">
@@ -109,7 +109,7 @@ export default withPageAuthRequired(function EditPostModal({
                         id="tag"
                         name="tag"
                         as="select"
-                        className="select bg-transparent border border-gray-800 w-full max-w-xs"
+                        className="py-4 px-2 bg-transparent border border-gray-800 w-full max-w-xs rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                       >
                         <option>Choose article tag</option>
                         <option value="frontend">Frontend</option>
@@ -129,7 +129,7 @@ export default withPageAuthRequired(function EditPostModal({
                         id="links"
                         name="links"
                         placeholder="http://love.com"
-                        className="w-full px-3 py-2 placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 bg-transparent dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                        className="w-full px-3 py-4 placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 bg-transparent dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                       />
                     </div>
                     <div className="mb-6">

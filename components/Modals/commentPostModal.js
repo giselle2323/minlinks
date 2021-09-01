@@ -35,7 +35,7 @@ export default withPageAuthRequired(function CommenPostModal({ open, onCloseModa
             modal: "custom-modal",
           }}
         >
-          <div className="flex items-center  bg-gray-5">
+          <div className="flex items-center bg-gray-5">
             <div className="max-w-md mx-auto my-10 p-5 rounded-md shadow-sm">
               <div className="text-center">
                 <h1 className="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
@@ -54,7 +54,7 @@ export default withPageAuthRequired(function CommenPostModal({ open, onCloseModa
                     router.push("/dashboard");
                   }}
                 >
-                  <Form>
+                  <Form className="px-5">
                     <div className="mb-6">
                       <label
                         htmlFor="body"
@@ -68,7 +68,7 @@ export default withPageAuthRequired(function CommenPostModal({ open, onCloseModa
                         id="body"
                         name="body"
                         placeholder="A post that tell if if a ball is red or yellow"
-                        className="w-full px-3 py-2 bg-transparent placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                        className="w-full px-3 py-4 h-48 bg-transparent placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                       />
                     </div>
 

@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 export default function AdminNavbar({ author }) {
-  const [toggle, setToggleNavbar] = useState(false);
-
-
   return (
     <>
       <div className="container mx-auto items-center">
@@ -40,7 +37,7 @@ export default function AdminNavbar({ author }) {
             </Link>
 
             <>
-              {author ? (
+              {author.length > 0 ? (
                 <div className="lg:flex lg:flex-row justify-end items-center">
                   <Link href="/api/auth/logout">
                     <a className="block w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-dark-700 dark:text-white  transition duration-500 ease-in-out transform bg-transparent border border-dark-700  dark:border-white rounded-md">
@@ -49,9 +46,11 @@ export default function AdminNavbar({ author }) {
                   </Link>
                 </div>
               ) : (
-                <button className="w-auto px-8 py-2 my-2 text-base font-medium text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:b-gblue-700 ">
-                  Login{" "}
-                </button>
+                <Link href={"/api/auth/login"}>
+                  <a className="block w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-dark-700 dark:text-white  transition duration-500 ease-in-out transform bg-transparent border border-dark-700  dark:border-white rounded-md">
+                    Login{" "}
+                  </a>
+                </Link>
               )}{" "}
             </>
           </div>

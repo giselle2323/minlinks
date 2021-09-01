@@ -7,6 +7,7 @@ import { UserProvider } from "@auth0/nextjs-auth0";
 import "react-toastify/dist/ReactToastify.css";
 import "react-responsive-modal/styles.css";
 import "../styles/globals.css";
+import "../styles/index.css";
 
 function MyApp({ Component, pageProps }) {
   const [queryClient] = React.useState(() => new QueryClient());

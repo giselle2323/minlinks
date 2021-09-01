@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useRouter } from "next/router";
 import { supabase } from "../utils/supabase";
 import { SupabaseUserContext } from "../context/userContext";
-import { useUser } from "@auth0/nextjs-auth0";
 import { toast } from "react-toastify";
 import ArticleCard from "../components/Cards/Card";
 import Loader from "../components/Loader/loader";
-import AddPost from "../components/Modals/AddPostModal";
 import Admin from "../layouts/Admin";
 export default function Bookmarks() {
   const author = useContext(SupabaseUserContext);
@@ -50,15 +47,12 @@ export default function Bookmarks() {
         )
         .filter("userId", "eq", author.length > 0 ? author[0].id : -1);
       setBookmarks(data);
-      
-      //   bookmarks.error && toast.error("something went wrong");
+      setLoading(false);
+      error && toast.error("something went wrong");
     }
     fetchBookmarks();
-    setLoading(false);
+    
   }, [author]);
-
-  //   console.log(bookmarkList, author[0].id);
-  //   console.log(bookmarkList);
 
   return (
     <div className="flex flex-col w-full">
@@ -89,7 +83,7 @@ export default function Bookmarks() {
             )
           )
         ) : (
-          <h2>YOU HAVE NO Bookmarks</h2>
+            <h2 className="text-dark-700 dark:text-white">Hey buddy, you have no bookmarks yet. </h2>
         )}
         </ul>
       )}

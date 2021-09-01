@@ -5,7 +5,6 @@ import memoji from "../public/memoji.svg";
 import lightMemoji from "../public/light-memoji.svg";
 export default function Hero() {
   const [colorTheme, setTheme] = useDarkMode();
-  console.log(colorTheme);
   return (
     <section className=" text-dark-700 dark:text-white h-full font-ibm">
       <div className="container mx-auto flex px-5 items-center justify-center flex-col">
