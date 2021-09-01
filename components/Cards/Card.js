@@ -39,14 +39,8 @@ export default function ArticleCard({
     >
       <div className="m-3 flex flex-col flex-1">
         <div className="flex flex-wrap justify-between">
-          <div className="w-2/3">
+          <div className="w-full">
             <h2 className="text-lg lg:mb-2 break-all">{title}</h2>
-          </div>
-          <div className="w-1/3">
-            {" "}
-            <h2 className="text-sm text-teal-800 text-center font-mono bg-green-transparent bg-opacity-75 rounded px-2">
-              {tag}
-            </h2>
           </div>
         </div>
         <div className="flex flex-col flex-1">
@@ -57,6 +51,12 @@ export default function ArticleCard({
         </div>
       </div>
       <div className="m-3 flex items-center">
+        <div className="w-1/3">
+          {" "}
+          <h2 className="text-sm text-teal-800 text-center font-mono bg-green-transparent bg-opacity-75 rounded px-2">
+            {tag}
+          </h2>
+        </div>
         <span
           onClick={() => router.push(`/post/${id}`)}
           className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0  leading-none text-sm pr-3 py-1"
