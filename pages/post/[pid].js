@@ -10,7 +10,7 @@ import { supabase } from "../../utils/supabase";
 import Loader from "../../components/Loader/loader";
 import Admin from "../../layouts/Admin";
 import EditPostModal from "../../components/Modals/EditPost";
-import CommenPostModal from "../../components/Modals/CommentPostModal";
+import CommentPostModal from "../../components/Modals/CommentPostModal";
 
 //i need the data here only reason i used getinitial post here.
 const Post = ({ post }) => {
