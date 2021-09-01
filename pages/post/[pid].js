@@ -127,7 +127,7 @@ const Post = ({ post }) => {
             />
           )}
           {showCommentPostModal && (
-            <CommenPostModal
+            <CommentPostModal
               open={showCommentPostModal}
               onCloseModal={toggleModal}
               postId={post.id}
