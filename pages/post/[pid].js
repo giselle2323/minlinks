@@ -12,13 +12,15 @@ import Admin from "../../layouts/Admin";
 import EditPostModal from "../../components/Modals/EditPost";
 import CommenPostModal from "../../components/Modals/CommentPostModal";
 
-//i ned the data here only reason i used getinitial post here.
+//i need the data here only reason i used getinitial post here.
 const Post = ({ post }) => {
   const router = useRouter();
   const globalAuthor = useContext(SupabaseUserContext);
   const { user } = useUser();
   const [liked, setLiked] = useState(false);
-  const [likesCount, setLikes] = useState(post.likes.length > 0 ? post.likes.length : 0);
+  const [likesCount, setLikes] = useState(
+    post.likes.length > 0 ? post.likes.length : 0
+  );
   const [bookmarked, setBookmarked] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [showEditPostModal, setShowEditPostModal] = useState(false);
@@ -139,21 +141,26 @@ const Post = ({ post }) => {
                   <h1 className="title-font text-2xl font-medium capitalize py-2">
                     {post.title}
                   </h1>
-                  <p className="text-base mb-4">
-                    <span className="dark:text-opacity-25 text-base normalcase">
+                  <p className="text-base mb-4 dark:text-opacity-25">
+                    <span className="text-base normalcase">
                       {moment(post.created_at).format(
                         "MMMM Do YYYY, h:mm:ss a"
                       )}
                     </span>
+                    {' '}by {post.authorId.name}
                   </p>
                 </div>
               </div>
               <p className="mb-8 leading-relaxed text-xl  normal-case font-light">
                 {post.body}
               </p>
-              <p className="mb-8 leading-relaxed text-xl  normal-case font-light">
-                Links: {post.links}
-              </p>
+              {post.links ? (
+                <p className="mb-8 leading-relaxed text-xl  normal-case font-light">
+                  Links: {post.links}
+                </p>
+              ) : (
+                ""
+              )}
               <div className="comments flex flex-col overflow-y-auto ">
                 <div className="flex justify-between my-3">
                   <h3 className="text-xl my-2">Comments</h3>
@@ -165,7 +172,11 @@ const Post = ({ post }) => {
                       Add Comment
                     </button>
                   ) : (
-                    <Link href="/api/auth/login"><a className="borderborder-white rounded p-2 m-2">Login to comment</a></Link>
+                    <Link href="/api/auth/login">
+                      <a className="borderborder-white rounded p-2 m-2">
+                        Login to comment
+                      </a>
+                    </Link>
                   )}
                 </div>
                 {post.comments.length > 0 ? (
@@ -349,7 +360,8 @@ const Post = ({ post }) => {
 Post.getInitialProps = async (ctx) => {
   const { data, error } = await supabase
     .from("posts")
-    .select( `
+    .select(
+      `
     id, 
     title, 
     body, 

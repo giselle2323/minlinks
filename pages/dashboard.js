@@ -69,9 +69,9 @@ export default function Dashboard() {
   };
   return (
     <div className="flex flex-col">
-      <div className="flex px-3 mb-3">
+      <div className="flex px-4 mb-3">
         <div className="flex items-center">
-          <h3>Filter By:</h3>
+          <h3 className="px-2">Filter By:</h3>
         </div>
         <div className="flex flex-1">
           <Select

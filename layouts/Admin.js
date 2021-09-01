@@ -73,7 +73,7 @@ export default function Admin({ children, pageTitle, description }) {
             />
           )}
         </div>
-        <div className="flex flex-wrap justify-between items-center flex-row container mx-auto">
+        <div className="flex flex-wrap justify-between items-center flex-row container mx-auto md:px-4">
           <div className="flex">
             <ul className="flex">
               <li
