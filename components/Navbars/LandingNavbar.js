@@ -47,7 +47,7 @@ export default function LandingNavbar({switchTheme}) {
                 className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="#ffffff"
+                stroke="#0e182a"
               >
                 <path
                   strokeLinecap="round"

@@ -7,7 +7,7 @@ import Hero from "../components/Hero";
 import list from "../public/list-svg.svg";
 import greenList from "../public/list-green.svg";
 import Footer from "../components/Footer";
-export default function Landing() {
+export default function Landing({pageTitle, description}) {
   const { theme, setTheme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
 
@@ -26,7 +26,7 @@ export default function Landing() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <meta property="og:title" content={pageTitle} key="ogtitle" />
-        + <meta property="og:description" content={description} key="ogdesc" />
+        <meta property="og:description" content={description} key="ogdesc" />
         <title>{pageTitle}</title>
       </Head>
       <section className="flex flex-col w-full bg-white dark:bg-dark-700 ">
