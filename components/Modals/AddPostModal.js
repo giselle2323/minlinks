@@ -6,7 +6,8 @@ import { Formik, Field, Form } from "formik";
 
 export default  withPageAuthRequired( function AddPost({ open, onCloseModal, author, submitPost }) {
 
-    const router = useRouter()
+    const router = useRouter();
+    const [isLoading, setLoading] = useState(false);
   return (
     <Modal
       open={open}
@@ -33,8 +34,9 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                 authorId: author[0].id,
               }}
               onSubmit={async (values) => {
+                setLoading(true);
                 submitPost(values);
-                router.push('/dashboard');
+                setLoading(false);
               }}
             >
               <Form className="px-5">
@@ -111,7 +113,7 @@ export default  withPageAuthRequired( function AddPost({ open, onCloseModal, aut
                     type="submit"
                     className="w-full px-3 py-4 text-white bg-green-transparent rounded-md focus:bg-indigo-600 focus:outline-none"
                   >
-                    Submit Post
+                    {isLoading ? "Sumitting" : "Submit Post"}
                   </button>
                 </div>
               </Form>

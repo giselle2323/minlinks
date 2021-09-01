@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from 'next/link';
 import useDarkMode from "../hooks/useDarkMode";
-import memoji from "../public/memoji.svg";
-import lightMemoji from "../public/light-memoji.svg";
+import memoji from "../public/hero-dark.svg";
+import lightMemoji from "../public/hero-light.svg";
 export default function Hero() {
   const [colorTheme, setTheme] = useDarkMode();
   return (
@@ -17,7 +17,7 @@ export default function Hero() {
           </p>
           <div className="flex justify-center">
             <Link href="/dashboard">
-            <a className="inline-flex text-white bg-gradient-to-r from-green-grad-one to-green-grad-two border-0 py-2 px-6 focus:outline-none rounded text-lg">
+            <a className="inline-flex text-white bg-gradient-to-r from-green-grad-one to-green-grad-two hover:bg-green-900 border-0 py-2 px-6 focus:outline-none rounded text-lg">
                Explore 
             </a>
             </Link>

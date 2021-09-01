@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { supabase } from "../../utils/supabase";
 import { Modal } from "react-responsive-modal";
-import { withPageAuthRequired } from '@auth0/nextjs-auth0';
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { Formik, Field, Form } from "formik";
 import Loader from "../Loader/loader";
 
-export default withPageAuthRequired(function CommenPostModal({ open, onCloseModal, author, postId }) {
+export default withPageAuthRequired(function CommenPostModal({
+  open,
+  onCloseModal,
+  author,
+  postId,
+}) {
   const router = useRouter();
 
   const [isLoading, setLoading] = useState(false);
@@ -51,7 +56,8 @@ export default withPageAuthRequired(function CommenPostModal({ open, onCloseModa
                   }}
                   onSubmit={async (values) => {
                     submitCommentPost(values);
-                    router.push("/dashboard");
+                    setLoading(false);
+                    setTimeout(() => router.push("/dashboard"), 3000);
                   }}
                 >
                   <Form className="px-5">
@@ -79,7 +85,7 @@ export default withPageAuthRequired(function CommenPostModal({ open, onCloseModa
                         type="submit"
                         className="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none"
                       >
-                        Submit Post
+                        {isLoading ? "Submitting" : "Comment"}
                       </button>
                     </div>
                   </Form>
