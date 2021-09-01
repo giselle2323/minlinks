@@ -43,14 +43,14 @@ export default withPageAuthRequired(function EditPostModal({
           open={open}
           onClose={onCloseModal}
           classNames={{
-            modal: "custom-modal",
+            modal: "custom-modal dark:bg-dark-700 bg-white text-dark-700 dark:text-white",
           }}
         >
           <div className="flex items-center  bg-gray-5">
             <div className="max-w-md mx-auto my-10 p-5 rounded-md shadow-sm">
               <div className="text-center">
-                <h1 className="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
-                  <h2 className="text-dark-700 mb-2">Edit Idea</h2>
+                <h1 className="my-3 text-3xl font-semibold text-gray-700">
+                  Edit Idea
                 </h1>
               </div>
               <div className="m-7">
@@ -70,7 +70,7 @@ export default withPageAuthRequired(function EditPostModal({
                     <div className="mb-6">
                       <label
                         htmlFor="title"
-                        className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                        className="block mb-2 text-sm"
                       >
                         Title
                       </label>
@@ -78,13 +78,13 @@ export default withPageAuthRequired(function EditPostModal({
                         id="title"
                         name="title"
                         placeholder="Supabase Tutorial"
-                        className="w-full px-3 py-4 placeholder-gray-200 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 bg-transparent dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                        className="w-full px-3 py-4 placeholder-gray-500 border border-gray-800 rounded-md"
                       />
                     </div>
                     <div className="mb-6">
                       <label
                         htmlFor="body"
-                        className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                        className="block mb-2 text-sm"
                       >
                         Description
                       </label>
@@ -94,13 +94,13 @@ export default withPageAuthRequired(function EditPostModal({
                         id="body"
                         name="body"
                         placeholder="A post that tell if if a ball is red or yellow"
-                        className="w-full overscroll-y-auto px-3 py-4 h-48 bg-transparent placeholder-gray-200 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                        className="w-full overscroll-y-auto px-3 py-4 h-48 bg-transparent placeholder-gray-500 border border-gray-800 rounded-md"
                       />
                     </div>
                     <div className="mb-6">
                       <label
                         htmlFor="tag"
-                        className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                        className="block mb-2 text-sm"
                       >
                         Tag
                       </label>
@@ -109,7 +109,7 @@ export default withPageAuthRequired(function EditPostModal({
                         id="tag"
                         name="tag"
                         as="select"
-                        className="py-4 px-2 bg-transparent border border-gray-800 w-full max-w-xs rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                        className="py-4 px-2 bg-transparent border border-gray-800 w-full max-w-xs rounded-md"
                       >
                         <option>Choose article tag</option>
                         <option value="frontend">Frontend</option>
@@ -121,7 +121,7 @@ export default withPageAuthRequired(function EditPostModal({
                     <div className="mb-6">
                       <label
                         htmlFor="links"
-                        className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                        className="block mb-2 text-sm"
                       >
                         Links (optional)
                       </label>
@@ -129,7 +129,7 @@ export default withPageAuthRequired(function EditPostModal({
                         id="links"
                         name="links"
                         placeholder="http://love.com"
-                        className="w-full px-3 py-4 placeholder-gray-200 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 bg-transparent dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                        className="w-full px-3 py-4 placeholder-gray-500 border border-gray-800 rounded-md"
                       />
                     </div>
                     <div className="mb-6">

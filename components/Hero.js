@@ -1,10 +1,9 @@
 import Image from "next/image";
-import Link from 'next/link';
+import Link from "next/link";
 import useDarkMode from "../hooks/useDarkMode";
 import memoji from "../public/hero-dark.svg";
 import lightMemoji from "../public/hero-light.svg";
 export default function Hero() {
-  const [colorTheme, setTheme] = useDarkMode();
   return (
     <section className=" text-dark-700 dark:text-white h-full font-ibm">
       <div className="container mx-auto flex px-5 items-center justify-center flex-col">
@@ -17,17 +16,17 @@ export default function Hero() {
           </p>
           <div className="flex justify-center">
             <Link href="/dashboard">
-            <a className="inline-flex text-white bg-gradient-to-r from-green-grad-one to-green-grad-two hover:bg-green-900 border-0 py-2 px-6 focus:outline-none rounded text-lg">
-               Explore 
-            </a>
+              <a className="inline-flex text-white bg-gradient-to-r from-green-grad-one to-green-grad-two hover:bg-green-900 border-0 py-2 px-6 mb-2 lg:mb-0 focus:outline-none rounded text-lg">
+                Explore
+              </a>
             </Link>
           </div>
         </div>
         <div className="flex flex-col relative">
-        <div className="block dark:hidden ">
+          <div className="block dark:hidden ">
             <Image src={lightMemoji} alt="memoji hero" className="max-w-full" />
           </div>
-          <div className="object-contain hidden dark:block">
+          <div className="hidden dark:block">
             <Image src={memoji} alt="memoji hero" className="max-w-full" />
           </div>
         </div>

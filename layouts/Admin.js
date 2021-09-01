@@ -73,14 +73,14 @@ export default function Admin({ children, pageTitle, description }) {
             />
           )}
         </div>
-        <div className="flex flex-wrap justify-between items-center flex-row container mx-auto">
+        <div className="flex flex-wrap justify-between items-center flex-row container mx-auto md:px-4">
           <div className="flex">
             <ul className="flex">
               <li
                 className={
                   router.pathname == "/dashboard"
-                    ? "text-green-transparent m-3"
-                    : "m-3"
+                    ? "text-green-transparent my-3 lg:m-3 mx-2"
+                    : "lg:m-3 my-3 mx-2"
                 }
               >
                 <Link href="/dashboard">
@@ -92,8 +92,8 @@ export default function Admin({ children, pageTitle, description }) {
                   <li
                     className={
                       router.pathname == "/bookmarks"
-                        ? "text-green-transparent m-3"
-                        : "m-3"
+                        ? "text-green-transparent lg:m-3 mx-2 my-3"
+                        : "lg:m-3 my-3 mx-2"
                     }
                   >
                     <Link href="/bookmarks">
@@ -103,8 +103,8 @@ export default function Admin({ children, pageTitle, description }) {
                   <li
                     className={
                       router.pathname == "/my-ideas"
-                        ? "text-green-transparent m-3"
-                        : "m-3"
+                        ? "text-green-transparent lg:m-3 mx-2 my-3"
+                        : "lg:m-3 my-3 mx-2"
                     }
                   >
                     <Link href="/my-ideas">
@@ -120,7 +120,7 @@ export default function Admin({ children, pageTitle, description }) {
           <div className="flex items-center">
             <button
               onClick={toggleModal}
-              className=" text-white bg-gradient-to-r my-2 lg:mr-3 from-green-grad-one to-green-grad-two bg-transparent hover:bg-green-900 border-0 py-2 px-6 focus:outline-none rounded text-lg"
+              className=" text-white bg-gradient-to-r lg:mb-0 my-3 lg:my-2 lg:mr-3 from-green-grad-one to-green-grad-two bg-transparent hover:bg-green-900 border-0 py-2 px-6 focus:outline-none rounded text-lg"
             >
               New Post{" "}
             </button>

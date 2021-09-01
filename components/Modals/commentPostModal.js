@@ -37,14 +37,14 @@ export default withPageAuthRequired(function CommenPostModal({
           open={open}
           onClose={onCloseModal}
           classNames={{
-            modal: "custom-modal",
+            modal: "custom-modal dark:bg-dark-700 bg-white text-dark-700 dark:text-white",
           }}
         >
           <div className="flex items-center bg-gray-5">
             <div className="max-w-md mx-auto my-10 p-5 rounded-md shadow-sm">
               <div className="text-center">
-                <h1 className="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
-                  <h2>Add a Comment</h2>
+                <h1 className="my-3 text-3xl font-semibold">
+                  Add a Comment
                 </h1>
               </div>
               <div className="m-7">
@@ -64,7 +64,7 @@ export default withPageAuthRequired(function CommenPostModal({
                     <div className="mb-6">
                       <label
                         htmlFor="body"
-                        className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                        className="block mb-2 text-sm"
                       >
                         Comment
                       </label>
@@ -74,7 +74,7 @@ export default withPageAuthRequired(function CommenPostModal({
                         id="body"
                         name="body"
                         placeholder="A post that tell if if a ball is red or yellow"
-                        className="w-full px-3 py-4 h-48 bg-transparent placeholder-gray-300 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                        className="w-full px-3 py-4 h-48 bg-transparent placeholder-gray-500 border border-gray-800 rounded-md"
                       />
                     </div>
 

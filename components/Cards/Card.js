@@ -38,20 +38,20 @@ export default function ArticleCard({
       className="card m-2 cursor-pointer flex flex-col  border border-gray-800 rounded-lg transform hover:-translate-y-1 transition-all duration-200"
     >
       <div className="m-3 flex flex-col flex-1">
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 className="text-lg lg:mb-2 mr-3">{title}</h2>
+        <div className="flex flex-wrap justify-between">
+          <div className="w-2/3">
+            <h2 className="text-lg lg:mb-2 break-all">{title}</h2>
           </div>
-          <div>
+          <div className="w-1/3">
             {" "}
-            <span className="text-sm text-teal-800 font-mono bg-green-transparent bg-opacity-75 inline rounded px-2 align-top float-right">
+            <h2 className="text-sm text-teal-800 text-center font-mono bg-green-transparent bg-opacity-75 rounded px-2">
               {tag}
-            </span>
+            </h2>
           </div>
         </div>
         <div className="flex flex-col flex-1">
           {" "}
-          <p className="font-light font-mono text-sm text-dark-700 dark:text-white dark:text-opacity-30 hover:text-gray-900 transition-all duration-200 flex-1 truncate">
+          <p className="font-light font-mono text-sm text-dark-700 dark:text-white dark:text-opacity-30 hover:text-gray-900 transition-all duration-200 flex-1 ellipsis">
             {body}
           </p>
         </div>

@@ -10,20 +10,21 @@ import { supabase } from "../../utils/supabase";
 import Loader from "../../components/Loader/loader";
 import Admin from "../../layouts/Admin";
 import EditPostModal from "../../components/Modals/EditPost";
-import CommenPostModal from "../../components/Modals/commentPostModal";
+import CommentPostModal from "../../components/Modals/CommentPostModal";
 
-//i ned the data here only reason i used getinitial post here.
+//i need the data here only reason i used getinitial post here.
 const Post = ({ post }) => {
   const router = useRouter();
   const globalAuthor = useContext(SupabaseUserContext);
   const { user } = useUser();
   const [liked, setLiked] = useState(false);
-  const [likesCount, setLikes] = useState(post.likes.length);
+  const [likesCount, setLikes] = useState(
+    post.likes.length > 0 ? post.likes.length : 0
+  );
   const [bookmarked, setBookmarked] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [showEditPostModal, setShowEditPostModal] = useState(false);
   const [showCommentPostModal, setShowCommentPostModal] = useState(false);
-  const [copyvalue, setCopyValue] = useState("");
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -134,47 +135,59 @@ const Post = ({ post }) => {
             />
           )}
           <div className="container mx-auto flex flex-col px-4 md:flex-row md:px-32 py-24 ">
-            <div className="w-full md:w-9/12 mr-4">
+            <div className="w-full md:w-9/12 mr-4 text-dark-700 dark:text-white">
               <div className="flex justify-between items-center">
                 <div className="flex-1">
-                  <h1 className="title-font text-2xl font-medium text-white capitalize py-2">
+                  <h1 className="title-font text-2xl font-medium capitalize py-2">
                     {post.title}
                   </h1>
-                  <p className="text-base mb-4">
-                    <span className="text-white text-opacity-25 text-base normalcase">
+                  <p className="text-base mb-4 dark:text-opacity-25">
+                    <span className="text-base normalcase">
                       {moment(post.created_at).format(
                         "MMMM Do YYYY, h:mm:ss a"
                       )}
                     </span>
+                    {' '}by {post.authorId.name}
                   </p>
                 </div>
               </div>
               <p className="mb-8 leading-relaxed text-xl  normal-case font-light">
                 {post.body}
               </p>
+              {post.links ? (
+                <p className="mb-8 leading-relaxed text-xl  normal-case font-light">
+                  Links: {post.links}
+                </p>
+              ) : (
+                ""
+              )}
               <div className="comments flex flex-col overflow-y-auto ">
                 <div className="flex justify-between my-3">
                   <h3 className="text-xl my-2">Comments</h3>
                   {globalAuthor ? (
                     <button
-                      className="border border-white rounded p-2 m-2 "
+                      className="border border-white rounded p-2 m-2"
                       onClick={togglePostCommentModal}
                     >
                       Add Comment
                     </button>
                   ) : (
-                    <Link href="/api/auth/login">Login to comment</Link>
+                    <Link href="/api/auth/login">
+                      <a className="borderborder-white rounded p-2 m-2">
+                        Login to comment
+                      </a>
+                    </Link>
                   )}
                 </div>
                 {post.comments.length > 0 ? (
                   post.comments.map((comment) => (
                     <div
                       key={comment.userId.id}
-                      className="border border-gray-800 px-3 py-4 mb-3 bg-dark-500"
+                      className="border border-gray-800 px-3 py-4 mb-3 dark:bg-dark-500"
                     >
                       <p className="text-lg py-2">
                         {comment.userId.name} at{" "}
-                        <span className="text-white text-opacity-25 text-lg normalcase">
+                        <span className=" dark:text-opacity-25 text-opacity-25 text-lg normalcase">
                           {moment(comment.created_at).format(
                             "MMMM Do YYYY, h:mm:ss a"
                           )}
@@ -186,7 +199,11 @@ const Post = ({ post }) => {
                     </div>
                   ))
                 ) : (
-                  <p className="border border-gray-800 px-3 py-4 mb-3 bg-dark-500">There is no comment on this post yet</p>
+                  <div className="border border-gray-800 px-3 py-4 mb-3 dark:bg-dark-500">
+                    <p className="text-base py-2 font-light">
+                      There is no comment on this post yet{" "}
+                    </p>
+                  </div>
                 )}
               </div>
             </div>
@@ -217,7 +234,7 @@ const Post = ({ post }) => {
                         className="h-6 w-6"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="currentColor"
+                        stroke="gray"
                       >
                         <path
                           strokeLinecap="round"
@@ -237,7 +254,7 @@ const Post = ({ post }) => {
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"
                         viewBox="0 0 20 20"
-                        fill="currentColor"
+                        fill="gray"
                       >
                         <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                       </svg>
@@ -247,7 +264,7 @@ const Post = ({ post }) => {
                         className="h-6 w-6"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="currentColor"
+                        stroke="gray"
                       >
                         <path
                           strokeLinecap="round"
@@ -309,9 +326,10 @@ const Post = ({ post }) => {
                   <button className="bg-dark-500 bg-opacity-25 text-dark-700 dark:text-white p-3 rounded border-0 m-3">
                     Share Post
                   </button>
-                  
                 </CopyToClipboard>
-                <p className="text-dark-700 text-center dark:text-white">{copied ? "copied" : ''}</p>
+                <p className="text-dark-700 text-center dark:text-white">
+                  {copied ? "copied" : ""}
+                </p>
               </div>
               {globalAuthor.length > 0 ? (
                 <div className=" flex flex-col">
@@ -369,7 +387,7 @@ Post.getInitialProps = async (ctx) => {
     )
   `
     )
-    .filter("id", "eq", parseInt(Object.values(ctx.query.pid)[0], 10))
+    .filter("id", "eq", Number(ctx.query.pid))
     .single();
 
   return { post: data, error: error };
