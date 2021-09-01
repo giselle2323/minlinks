@@ -12,7 +12,7 @@ import Admin from "../../layouts/Admin";
 import EditPostModal from "../../components/Modals/EditPost";
 import CommentPostModal from "../../components/Modals/CommentPostModal";
 
-//i need the data here only reason i used getinitial post here.
+//i need the data here only reason i used getinitial post here (trigger deployment).
 const Post = ({ post }) => {
   const router = useRouter();
   const globalAuthor = useContext(SupabaseUserContext);
