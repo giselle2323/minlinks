@@ -31,7 +31,8 @@ export default withPageAuthRequired(function EditPostModal({
       toast.error("An error occured, kindly try again");
     }
     setLoading(false);
-    window.location.reload();
+    setTimeout(() => window.location.reload(), 3000);
+    
   };
   return (
     <>
@@ -62,8 +63,7 @@ export default withPageAuthRequired(function EditPostModal({
                     authorId: author[0].id,
                   }}
                   onSubmit={async (values) => {
-                    submitEditPost(values);
-                    router.push("/my-ideas");
+                    submitEditPost(values);      
                   }}
                 >
                   <Form className="px-5">
@@ -138,7 +138,7 @@ export default withPageAuthRequired(function EditPostModal({
                         type="submit"
                         className="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none"
                       >
-                        Submit Post
+                      {isLoading ? "Editing" : "Edit Post"}
                       </button>
                     </div>
                   </Form>

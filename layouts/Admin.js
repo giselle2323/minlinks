@@ -41,13 +41,13 @@ export default function Admin({ children, pageTitle, description }) {
   };
 
   const submitPost = async (values) => {
-    // setLoading(true);
     const { error } = await supabase.from("posts").insert([values]);
 
     if (error) {
       toast.error("An error occured, kindly try again");
     }
-    window.location.reload();
+    setTimeout(() => window.location.reload(), 3000)
+    
   };
 
   return (
@@ -120,7 +120,7 @@ export default function Admin({ children, pageTitle, description }) {
           <div className="flex items-center">
             <button
               onClick={toggleModal}
-              className=" text-white bg-gradient-to-r my-2 lg:mr-3 from-green-grad-one to-green-grad-two border-0 py-2 px-6 focus:outline-none rounded text-lg"
+              className=" text-white bg-gradient-to-r my-2 lg:mr-3 from-green-grad-one to-green-grad-two bg-transparent hover:bg-green-900 border-0 py-2 px-6 focus:outline-none rounded text-lg"
             >
               New Post{" "}
             </button>

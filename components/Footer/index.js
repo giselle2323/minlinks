@@ -34,33 +34,9 @@ export default function Footer() {
               </a>
             </Link>
           
-          <nav className="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto">
-            {/* <a
-              href="#"
-              className="px-4 py-1 mr-1 text-base text-dark-700 dark:text-white transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black "
-            >
-              Pricing
-            </a>
-            <a
-              href="#"
-              className="px-4 py-1 mr-1 text-base text-dark-700 dark:text-white transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black "
-            >
-              Contact
-            </a>
-            <a
-              href="#"
-              className="px-4 py-1 mr-1 text-base text-dark-700 dark:text-white transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black "
-            >
-              Services
-            </a>
-            <a
-              href="#"
-              className="px-4 py-1 mr-1 text-base text-dark-700 dark:text-white transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black "
-            >
-              Now
-            </a> */}
-            <p className="text-center px-4 py-1 mr-1  text-xl text-dark-700 dark:text-white">Made with ❤️ by Aminat  </p>
-            <p className="text-center px-4 py-1 mr-1  text-xl text-dark-700 dark:text-white">2021 </p>
+          <nav className="flex flex-wrap items-center justify-center text-base mx-auto mr-12">
+            <p className="text-center px-4 py-1 lg:ml-4  text-xl text-dark-700 dark:text-white">Made with ❤️ by Aminat  </p>
+            {/* <p className="text-center px-4 py-1 mr-1  text-xl text-dark-700 dark:text-white">2021</p> */}
             
           </nav>
           <span className="inline-flex justify-center mt-2 mr-2 sm:ml-auto sm:mt-0 sm:justify-start">

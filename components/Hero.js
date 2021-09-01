@@ -17,7 +17,7 @@ export default function Hero() {
           </p>
           <div className="flex justify-center">
             <Link href="/dashboard">
-            <a className="inline-flex text-white bg-gradient-to-r from-green-grad-one to-green-grad-two border-0 py-2 px-6 focus:outline-none rounded text-lg">
+            <a className="inline-flex text-white bg-gradient-to-r from-green-grad-one to-green-grad-two hover:bg-green-900 border-0 py-2 px-6 focus:outline-none rounded text-lg">
                Explore 
             </a>
             </Link>

@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
-import PropTypes from "prop-types";
+import PropTypes, { node } from "prop-types";
 import moment from "moment";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import { SupabaseUserContext } from "../../context/userContext";
 import { useUser } from "@auth0/nextjs-auth0";
 import { supabase } from "../../utils/supabase";
@@ -22,6 +23,8 @@ const Post = ({ post }) => {
   const [isLoading, setLoading] = useState(false);
   const [showEditPostModal, setShowEditPostModal] = useState(false);
   const [showCommentPostModal, setShowCommentPostModal] = useState(false);
+  const [copyvalue, setCopyValue] = useState("");
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -137,16 +140,26 @@ const Post = ({ post }) => {
                   <h1 className="title-font text-2xl font-medium text-white capitalize py-2">
                     {post.title}
                   </h1>
-                  <p className='text-base mb-4'><span className='text-white text-opacity-25 text-base normalcase'>{moment(post.created_at).format('MMMM Do YYYY, h:mm:ss a')}</span></p>
+                  <p className="text-base mb-4">
+                    <span className="text-white text-opacity-25 text-base normalcase">
+                      {moment(post.created_at).format(
+                        "MMMM Do YYYY, h:mm:ss a"
+                      )}
+                    </span>
+                  </p>
                 </div>
-                
               </div>
-              <p className="mb-8 leading-relaxed text-xl  normal-case font-light">{post.body}</p>
+              <p className="mb-8 leading-relaxed text-xl  normal-case font-light">
+                {post.body}
+              </p>
               <div className="comments flex flex-col overflow-y-auto ">
                 <div className="flex justify-between my-3">
                   <h3 className="text-xl my-2">Comments</h3>
                   {globalAuthor ? (
-                    <button className="border border-white rounded p-2 m-2 " onClick={togglePostCommentModal}>
+                    <button
+                      className="border border-white rounded p-2 m-2 "
+                      onClick={togglePostCommentModal}
+                    >
                       Add Comment
                     </button>
                   ) : (
@@ -159,12 +172,21 @@ const Post = ({ post }) => {
                       key={comment.userId.id}
                       className="border border-gray-800 px-3 py-4 mb-3 bg-dark-500"
                     >
-                      <p className="text-lg py-2">{comment.userId.name} at <span className='text-white text-opacity-25 text-lg normalcase'>{moment(comment.created_at).format('MMMM Do YYYY, h:mm:ss a')}</span></p>
-                      <p className="text-base py-2 font-light">{comment.body}</p>
+                      <p className="text-lg py-2">
+                        {comment.userId.name} at{" "}
+                        <span className="text-white text-opacity-25 text-lg normalcase">
+                          {moment(comment.created_at).format(
+                            "MMMM Do YYYY, h:mm:ss a"
+                          )}
+                        </span>
+                      </p>
+                      <p className="text-base py-2 font-light">
+                        {comment.body}
+                      </p>
                     </div>
                   ))
                 ) : (
-                  <p>There is no comment on this post yet</p>
+                  <p className="border border-gray-800 px-3 py-4 mb-3 bg-dark-500">There is no comment on this post yet</p>
                 )}
               </div>
             </div>
@@ -208,7 +230,7 @@ const Post = ({ post }) => {
                   </button>
                   <button
                     onClick={() => bookmarkPost(post.id, post.authorId)}
-                    className="text-center text-white bg-transparent border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg m-3"
+                    className="text-center text-white bg-transparent border-0 py-2 px-8 focus:outline-none rounded text-lg m-3"
                   >
                     {bookmarked ? (
                       <svg
@@ -279,24 +301,36 @@ const Post = ({ post }) => {
                   </button>
                 </div>
               )}
+              <div className=" flex flex-col">
+                <CopyToClipboard
+                  text={`https://quick-cards.vercel.app/posts/${post.id}`}
+                  onCopy={() => setCopied(true)}
+                >
+                  <button className="bg-dark-500 bg-opacity-25 text-dark-700 dark:text-white p-3 rounded border-0 m-3">
+                    Share Post
+                  </button>
+                  
+                </CopyToClipboard>
+                <p className="text-dark-700 text-center dark:text-white">{copied ? "copied" : ''}</p>
+              </div>
               {globalAuthor.length > 0 ? (
-                  <div className=" flex flex-col">
-                    <button
-                      className="bg-green-transparent bg-opacity-25 text-green-transparent p-3 rounded border-0 m-3"
-                      onClick={toggleModal}
-                    >
-                      Edit Post
-                    </button>
-                    <button
-                      className="bg-red-500 bg-opacity-25 text-white p-3 rounded border-0 m-3"
-                      onClick={() => deletePost(post.id)}
-                    >
-                      Delete Post
-                    </button>
-                  </div>
-                ) : (
-                  ""
-                )}
+                <div className=" flex flex-col">
+                  <button
+                    className="bg-green-transparent hover:bg-green-700 bg-opacity-25 text-green-transparent p-3 rounded border-0 m-3"
+                    onClick={toggleModal}
+                  >
+                    Edit Post
+                  </button>
+                  <button
+                    className="bg-red-500 hover:bg-red-700 bg-opacity-25 text-white p-3 rounded border-0 m-3"
+                    onClick={() => deletePost(post.id)}
+                  >
+                    Delete Post
+                  </button>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </section>

@@ -7,6 +7,7 @@ import Hero from "../components/Hero";
 import list from "../public/list-svg.svg";
 import greenList from "../public/list-green.svg";
 import Footer from "../components/Footer";
+import Link from "next/link";
 export default function Landing({pageTitle, description}) {
   const { theme, setTheme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
@@ -132,18 +133,15 @@ export default function Landing({pageTitle, description}) {
         <section className="my-5">
           <div className="container mx-auto">
             <div className="text-center mx-4 lg:mx-24 rounded-lg flex px-5 py-12 items-center justify-center flex-col bg-transparent border border-dark-700 dark:border-0 dark:bg-dark-500">
-              <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-dark-700 dark:text-white">
-                Get Afternotes for free, Boost your productivity today
+              <h1 className="title-font mb-4 sm:text-4xl text-3xl mb-4 font-medium text-dark-700 dark:text-white">
+                Got suggestions on how to make the application better ?
               </h1>
-              <p className="mb-8 leading-relaxed text-dark-700 dark:text-white dark:text-opacity-25">
-                Tellus tristique lorem volutpat a, at pretium maecenas a amet.
-                Sit vitae ultrices faucibus bibendum. Malesuada vestibulum odio
-                fermentum condimentum.
-              </p>
+              
               <div className="flex justify-center">
-                <button className="inline-flex text-white bg-gradient-to-r from-green-grad-one to-green-grad-two border-0 py-2 px-6 focus:outline-none rounded text-lg">
-                  Say Hi
-                </button>
+                <Link href='https://twitter.com/yakubu_jumoke'>
+                  <a className="inline-flex text-white bg-gradient-to-r from-green-grad-one to-green-grad-two border-0 py-2 px-6 focus:outline-none rounded text-lg"> Say Hi</a>
+                </Link>
+                
               </div>
             </div>
           </div>

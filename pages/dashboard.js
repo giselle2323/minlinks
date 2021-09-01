@@ -45,7 +45,7 @@ export default function Dashboard() {
   ];
   return (
     <div className="flex flex-col">
-      {/* <div className="flex flex-col items-end justify-items-end mb-3">
+      <div className="flex flex-col items-end justify-items-end mb-3">
         <Select
           value={selectedOption}
           onChange={handleChange}
@@ -54,7 +54,7 @@ export default function Dashboard() {
           width="300px"
           menuColor="transparent"
         />
-      </div> */}
+      </div>
       <div className="overflow-y-auto">
         <ul
           role="list"
@@ -86,7 +86,7 @@ export default function Dashboard() {
               )
             )
           ) : (
-            <h2>No data to display</h2>
+            <h2 className="text-3xl">No data to display</h2>
           )}
         </ul>
       </div>
