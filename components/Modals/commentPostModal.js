@@ -32,7 +32,6 @@ export default withPageAuthRequired(function CommenPostModal({ open, onCloseModa
           open={open}
           onClose={onCloseModal}
           classNames={{
-            overlay: "customOverlay",
             modal: "custom-modal",
           }}
         >

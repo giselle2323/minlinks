@@ -11,8 +11,6 @@ export default function Admin({ children }) {
   const [showAddPostModal, setShowAddPostModal] = useState(false);
   const [author, setAuthor] = useState([]);
   const { user, error, isLoading } = useUser();
-  const router = useRouter();
-
   useEffect(() => {
     async function findUser() {
       const { data } = await supabase
@@ -50,8 +48,8 @@ export default function Admin({ children }) {
   };
 
   return (
-    <main className="flex flex-col w-full h-full">
-      <div className="flex overflow-hidden font-sans container mx-auto">
+    <main className="flex flex-col w-full h-full bg-white dark:bg-dark-700 font-ibm">
+      <div className="flexfont-sans container mx-auto">
         <AdminNavbar author={author} />
       </div>
       <div className="flex justify-end container mx-auto">
@@ -64,7 +62,7 @@ export default function Admin({ children }) {
           />
         )}
       </div>
-      <div className="flex-col container mx-auto">
+      <div className="flex flex-wrap justify-between items-center flex-row container mx-auto">
         <div className="flex">
           <ul className="flex">
             <li className="m-3">
@@ -90,8 +88,11 @@ export default function Admin({ children }) {
             )}
           </ul>
         </div>
+        <div className="flex items-center"><button onClick={toggleModal} className=" text-white bg-gradient-to-r my-2 lg:mr-3 from-green-grad-one to-green-grad-two border-0 py-2 px-6 focus:outline-none rounded text-lg">
+                    New Post{" "}
+                  </button></div>
       </div>
-      <div>
+      <div className="container mx-auto">
         <SupabaseUserProvider value={author}>{children}</SupabaseUserProvider>
       </div>
     </main>

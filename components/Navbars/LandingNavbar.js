@@ -1,8 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import useDarkMode from "../../hooks/useDarkMode.js";
-export default function LandingNavbar() {
-  const [colorTheme, setTheme] = useDarkMode();
+import { useTheme } from "next-themes" 
+
+export default function LandingNavbar({switchTheme}) {
+  const { theme } = useTheme(); 
   return (
     <>
       <div className="container mx-auto items-center">
@@ -11,7 +12,7 @@ export default function LandingNavbar() {
             <Link href="/">
               <a className="justify-center flex-1 focus:outline-none md:ml-auto md:mr-auto">
                 <svg
-                  width="169"
+                  width="140"
                   height="53"
                   viewBox="0 0 169 53"
                   fill="none"
@@ -37,13 +38,11 @@ export default function LandingNavbar() {
                 </svg>
               </a>
             </Link>
-            <button className="w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-dark-700 dark:text-white transition duration-500 ease-in-out transform border border-green-500 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">
-              Login{" "}
-            </button>
-            <div>
-            {colorTheme === "light" ? (
+           
+            <div className="mx-3">
+            {theme === "light" ? (
               <svg
-                onClick={() => setTheme("light")}
+               onClick={() => switchTheme()}
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
                 fill="none"
@@ -59,7 +58,7 @@ export default function LandingNavbar() {
               </svg>
             ) : (
               <svg
-                onClick={() => setTheme("dark")}
+                onClick={() => switchTheme()}
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
                 fill="none"
@@ -75,7 +74,9 @@ export default function LandingNavbar() {
               </svg>
             )}
             </div>
-            
+            <Link href='/api/auth/login'>
+              <a className="w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-dark-700 dark:text-white transition duration-500 ease-in-out transform border border-green-500 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">Login</a>
+            </Link>
           </div>
         </div>
       </div>
