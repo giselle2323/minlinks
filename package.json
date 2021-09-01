@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "style": "tailwindcss build styles/globals.css -o styles/index.css",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
