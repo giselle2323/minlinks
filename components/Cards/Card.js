@@ -51,15 +51,14 @@ export default function ArticleCard({
         </div>
       </div>
       <div className="m-3 flex items-center">
-        <div className="w-1/3">
-          {" "}
+        <div>
           <h2 className="text-sm text-teal-800 text-center font-mono bg-green-transparent bg-opacity-75 rounded px-2">
             {tag}
           </h2>
         </div>
         <span
           onClick={() => router.push(`/post/${id}`)}
-          className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0  leading-none text-sm pr-3 py-1"
+          className="text-gray-400 mr-3 inline-flex text-center justify-center items-center  leading-none text-sm py-1"
         >
           {liked ? (
             <svg

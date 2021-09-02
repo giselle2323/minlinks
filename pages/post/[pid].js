@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import PropTypes, { node } from "prop-types";
+import PropTypes from "prop-types";
 import moment from "moment";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -18,9 +18,7 @@ const Post = ({ post }) => {
   const globalAuthor = useContext(SupabaseUserContext);
   const { user } = useUser();
   const [liked, setLiked] = useState(false);
-  const [likesCount, setLikes] = useState(
-    post.likes.length > 0 ? post.likes.length : 0
-  );
+  const [likesCount, setLikes] = useState(post.likes.length);
   const [bookmarked, setBookmarked] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [showEditPostModal, setShowEditPostModal] = useState(false);
@@ -129,7 +127,7 @@ const Post = ({ post }) => {
           {showCommentPostModal && (
             <CommentPostModal
               open={showCommentPostModal}
-              onCloseModal={toggleModal}
+              onCloseModal={togglePostCommentModal}
               postId={post.id}
               author={globalAuthor}
             />
@@ -146,8 +144,8 @@ const Post = ({ post }) => {
                       {moment(post.created_at).format(
                         "MMMM Do YYYY, h:mm:ss a"
                       )}
-                    </span>
-                    {' '}by {post.authorId.name}
+                    </span>{" "}
+                    by {post.authorId.name}
                   </p>
                 </div>
               </div>
@@ -155,7 +153,7 @@ const Post = ({ post }) => {
                 {post.body}
               </p>
               {post.links ? (
-                <p className="mb-8 leading-relaxed text-xl  normal-case font-light">
+                <p className="mb-8 leading-relaxed text-xl  normal-case font-light break-all">
                   Links: {post.links}
                 </p>
               ) : (
