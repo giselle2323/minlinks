@@ -3458,6 +3458,11 @@ react-dom@17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
+react-error-decoder@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-error-decoder/-/react-error-decoder-0.1.0.tgz#b7e6427ed9df379895a40cf128888f127475f4de"
+  integrity sha512-iJrlCrNGbWNt674kyPmHz3MeAyR7JdBrI9grXgOHMY0pWs4GSe7faFuz8KkbNzX8js29h5vVDo8/6HdPC5t3wA==
+
 react-fast-compare@^2.0.1:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"

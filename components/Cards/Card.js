@@ -12,9 +12,7 @@ export default function ArticleCard({
   body,
   comments,
   likes,
-  links,
   tag,
-  author,
   bookmarks,
 }) {
   const router = useRouter();

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useContext, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { supabase } from "../utils/supabase";
@@ -13,7 +13,6 @@ import ArticleCard from "../components/Cards/Card";
 import Loader from "../components/Loader/loader";
 import Admin from "../layouts/Admin";
 export default function Dashboard() {
-  const ref = useRef();
   const author = useContext(SupabaseUserContext);
   const { user, error, loading } = useUser();
   const allPosts = useRef(useQuery("articlesIdeas", fetchArticlesIdeas));
@@ -22,8 +21,6 @@ export default function Dashboard() {
   );
 
   const [selectedOption, setSelectedOption] = useState(null);
-
-  const router = useRouter();
 
   const handleChange = async (selectedOption) => {
     if (selectedOption.value.toLowerCase().trim() === "all") {
