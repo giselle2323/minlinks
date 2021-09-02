@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import PropTypes, { node } from "prop-types";
+import PropTypes from "prop-types";
 import moment from "moment";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -18,9 +18,7 @@ const Post = ({ post }) => {
   const globalAuthor = useContext(SupabaseUserContext);
   const { user } = useUser();
   const [liked, setLiked] = useState(false);
-  const [likesCount, setLikes] = useState(
-    post.likes.length > 0 ? post.likes.length : 0
-  );
+  const [likesCount, setLikes] = useState(post.likes.length);
   const [bookmarked, setBookmarked] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [showEditPostModal, setShowEditPostModal] = useState(false);
@@ -129,7 +127,7 @@ const Post = ({ post }) => {
           {showCommentPostModal && (
             <CommentPostModal
               open={showCommentPostModal}
-              onCloseModal={toggleModal}
+              onCloseModal={togglePostCommentModal}
               postId={post.id}
               author={globalAuthor}
             />
@@ -146,8 +144,8 @@ const Post = ({ post }) => {
                       {moment(post.created_at).format(
                         "MMMM Do YYYY, h:mm:ss a"
                       )}
-                    </span>
-                    {' '}by {post.authorId.name}
+                    </span>{" "}
+                    by {post.authorId.name}
                   </p>
                 </div>
               </div>
@@ -155,7 +153,7 @@ const Post = ({ post }) => {
                 {post.body}
               </p>
               {post.links ? (
-                <p className="mb-8 leading-relaxed text-xl  normal-case font-light">
+                <p className="mb-8 leading-relaxed text-xl  normal-case font-light break-all">
                   Links: {post.links}
                 </p>
               ) : (
@@ -210,12 +208,13 @@ const Post = ({ post }) => {
 
             <div className=" flex flex-col justify-center w:full md:w-3/12">
               {user ? (
-                <div className="flex flex-col justify-center p-3">
+                <div className="flex md:flex-col justify-center p-3">
                   <button
                     onClick={() => clickLike(post.id, post.authorId)}
                     className="text-center text-white bg-transparent border-0 py-2 px-8 focus:outline-none rounded text-lg m-3"
                   >
                     {liked ? (
+                      <React.Fragment className="flex">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"
@@ -227,8 +226,10 @@ const Post = ({ post }) => {
                           d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
                           clipRule="evenodd"
                         />
-                      </svg>
+                      </svg><span>{likesCount}</span>
+                      </React.Fragment>
                     ) : (
+                      <>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6"
@@ -242,8 +243,9 @@ const Post = ({ post }) => {
                           strokeWidth="2"
                           d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                         />
-                      </svg>
-                    )}
+                      </svg><span>{likesCount}</span>
+                      </>
+                    )} 
                   </button>
                   <button
                     onClick={() => bookmarkPost(post.id, post.authorId)}
@@ -319,8 +321,9 @@ const Post = ({ post }) => {
                 </div>
               )}
               <div className=" flex flex-col">
+                {/* Get App's URL */}
                 <CopyToClipboard
-                  text={`https://quick-cards.vercel.app/posts/${post.id}`}
+                  text={`https://articool-main.vercel.app/posts/${post.id}`}
                   onCopy={() => setCopied(true)}
                 >
                   <button className="bg-dark-500 bg-opacity-25 text-dark-700 dark:text-white p-3 rounded border-0 m-3">
