@@ -22,7 +22,9 @@ export default withPageAuthRequired(function EditPostModal({
     if (error) {
       toast.error("An error occured, kindly try again");
     }
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 1500);
   };
   return (
     <Modal
@@ -59,8 +61,7 @@ export default withPageAuthRequired(function EditPostModal({
                 return errors;
               }}
               onSubmit={async (values, { setSubmitting }) => {
-                setSubmitting(true);
-                submitEditPost(values);
+                await submitEditPost(values);
                 setSubmitting(false);
               }}
             >
@@ -141,8 +142,7 @@ export default withPageAuthRequired(function EditPostModal({
                       disabled={isSubmitting}
                       className="w-full px-3 py-4 text-white bg-green-transparent rounded-md focus:bg-green-700 focus:outline-none"
                     >
-                     { console.log(isSubmitting)}
-                      {isSubmitting ? "Submitting" : "Edit Post"}
+                      {isSubmitting ? "Submitting Post" : "Edit Post"}
                     </button>
                   </div>
                 </Form>

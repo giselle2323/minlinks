@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment, useLayoutEffect } from "react";
+import React, { useState, useEffect} from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
@@ -11,7 +11,7 @@ import AdminNavbar from "../components/Navbars/AdminNavbar";
 export default function Admin({ children, pageTitle, description }) {
   const [showAddPostModal, setShowAddPostModal] = useState(false);
   const [author, setAuthor] = useState([]);
-  const { user, error, isLoading } = useUser();
+  const { user, error} = useUser();
   const router = useRouter();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function Admin({ children, pageTitle, description }) {
           .from("users")
           .insert({ name: user.name, email: user.email });
         setAuthor(data);
-        // error && toast.error("An error occured, please try again");
+        error ? console.log('error getting user') : ''
       }
     }
     if (user) {
@@ -42,12 +42,10 @@ export default function Admin({ children, pageTitle, description }) {
 
   const submitPost = async (values) => {
     const { error } = await supabase.from("posts").insert([values]);
-
     if (error) {
       toast.error("An error occured, kindly try again");
     }
-    setTimeout(() => window.location.reload(), 3000)
-    
+    setTimeout(() => window.location.reload(), 1500);
   };
 
   return (

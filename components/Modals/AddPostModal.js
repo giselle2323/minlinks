@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Modal } from "react-responsive-modal";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { Formik, Field, Form, ErrorMessage } from "formik";
@@ -32,7 +32,7 @@ export default withPageAuthRequired(function AddPost({
                 links: "",
                 authorId: author[0].id,
               }}
-              validate={values => {
+              validate={(values) => {
                 const errors = {};
                 if (!values.title) {
                   errors.title = "Required";
@@ -44,15 +44,11 @@ export default withPageAuthRequired(function AddPost({
                 return errors;
               }}
               onSubmit={async (values, { setSubmitting }) => {
-                setSubmitting(true);
-                submitPost(values);
+                await submitPost(values);
                 setSubmitting(false);
               }}
             >
-              {({
-                isSubmitting,
-              }) => (
-                
+              {({ isSubmitting }) => (
                 <Form className="px-5">
                   <div className="mb-6">
                     <label
@@ -67,7 +63,11 @@ export default withPageAuthRequired(function AddPost({
                       placeholder="Supabase Tutorial"
                       className="w-full px-3 mb-3 py-4 bg-transparent placeholder-gray-500 border text-lg font-normal border-gray-800 rounded-md"
                     />
-                    <ErrorMessage name="title" component="div" className="text-red-500"/>
+                    <ErrorMessage
+                      name="title"
+                      component="div"
+                      className="text-red-500"
+                    />
                   </div>
                   <div className="mb-6">
                     <label
@@ -84,7 +84,11 @@ export default withPageAuthRequired(function AddPost({
                       placeholder="A post that tell if if a ball is red or yellow"
                       className="w-full mb-3 px-3 py-4 h-48 bg-transparent placeholder-gray-500 border border-gray-800 rounded-md overscroll-y-auto"
                     />
-                    <ErrorMessage name="body" component="div" className="text-red-500"/>
+                    <ErrorMessage
+                      name="body"
+                      component="div"
+                      className="text-red-500"
+                    />
                   </div>
                   <div className="mb-6">
                     <label
@@ -106,7 +110,11 @@ export default withPageAuthRequired(function AddPost({
                       <option value="serverless">Serverless</option>
                       <option value="other">Other</option>
                     </Field>
-                    <ErrorMessage name="tag" component="div" className="text-red-500"/>
+                    <ErrorMessage
+                      name="tag"
+                      component="div"
+                      className="text-red-500"
+                    />
                   </div>
                   <div className="mb-6">
                     <label
@@ -123,14 +131,13 @@ export default withPageAuthRequired(function AddPost({
                     />
                   </div>
                   <div className="mb-6">
-                  
                     <Field type="hidden" id="authorId" name="authorId" />
                     <button
                       type="submit"
                       disabled={isSubmitting}
                       className="w-full px-3 py-4 text-white bg-green-transparent rounded-md focus:bg-green-700 focus:outline-none"
                     >
-                      Submit Post
+                      {isSubmitting ? "Submitting Post" : "Submit Post"}
                     </button>
                   </div>
                 </Form>
