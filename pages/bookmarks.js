@@ -10,6 +10,8 @@ export default function Bookmarks() {
   const [bookmarkList, setBookmarks] = useState([]);
   const [isLoading, setLoading] = useState(false);
 
+  console.log(bookmarkList, author)
+
   useEffect(() => {
     setLoading(true);
     async function fetchBookmarks() {
