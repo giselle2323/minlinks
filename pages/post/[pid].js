@@ -214,7 +214,7 @@ const Post = ({ post }) => {
                     className="text-center text-white bg-transparent border-0 py-2 px-8 focus:outline-none rounded text-lg m-3"
                   >
                     {liked ? (
-                      <React.Fragment className="flex">
+                      <React.Fragment>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"
@@ -326,7 +326,7 @@ const Post = ({ post }) => {
                   text={`https://articool-main.vercel.app/posts/${post.id}`}
                   onCopy={() => setCopied(true)}
                 >
-                  <button className="bg-dark-500 bg-opacity-25 text-dark-700 dark:text-white p-3 rounded border-0 m-3">
+                  <button className="bg-dark-500 border border-gray-800 bg-opacity-25 text-dark-700 dark:text-white p-3 rounded border-0 m-3">
                     Share Post
                   </button>
                 </CopyToClipboard>
@@ -334,7 +334,7 @@ const Post = ({ post }) => {
                   {copied ? "copied" : ""}
                 </p>
               </div>
-              {globalAuthor.length > 0 ? (
+              {globalAuthor.id === post.authorId.id  ? (
                 <div className=" flex flex-col">
                   <button
                     className="bg-green-transparent hover:bg-green-700 bg-opacity-25 text-green-transparent p-3 rounded border-0 m-3"

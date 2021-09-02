@@ -56,7 +56,7 @@ export default function MyIdeas() {
       ) : (
         <ul
           role="list"
-          className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4"
+          className={myIdeasList.length > 0 ? "grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 overflow-y-auto" : "flex justify-center"}
         >
           {myIdeasList.length > 0 ? (
             myIdeasList.map(
@@ -84,7 +84,10 @@ export default function MyIdeas() {
               )
             )
           ) : (
-            <h2 className="text-dark-700 dark:text-white">Hey buddy, you have not created any idea. Click the button above to create one </h2>
+            <div>
+              <h2 className="text-dark-700 text-3xl my-14 dark:text-white">Hey buddy, you have not created any idea. Click the button above to create one </h2>
+            </div>
+            
           )}
         </ul>
       )}

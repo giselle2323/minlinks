@@ -83,7 +83,7 @@ export default function Dashboard() {
       <div className="overflow-y-auto">
         <ul
           role="list"
-          className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4"
+          className={ideas.data.posts.length > 0 ? "grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 overflow-y-auto" : "flex justify-center"}
         >
           {ideas.data.posts.length > 0 ? (
             ideas.data.posts.map(
@@ -111,7 +111,10 @@ export default function Dashboard() {
               )
             )
           ) : (
-            <h2 className="text-3xl text-center">No data to display</h2>
+            <div>
+               <h2 className="text-3xl my-14">No data to display</h2>
+            </div>
+           
           )}
         </ul>
       </div>

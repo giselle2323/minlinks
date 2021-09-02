@@ -50,7 +50,7 @@ export default function ArticleCard({
       </div>
       <div className="m-3 flex items-center">
         <div>
-          <h2 className="text-sm text-teal-800 text-center font-mono bg-green-transparent bg-opacity-75 rounded px-2">
+          <h2 className="text-sm text-teal-800 text-center font-mono mr-1 bg-green-transparent bg-opacity-75 rounded px-2">
             {tag}
           </h2>
         </div>

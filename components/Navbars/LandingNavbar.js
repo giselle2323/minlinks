@@ -1,9 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
+import { useUser } from "@auth0/nextjs-auth0";
 
 export default function LandingNavbar({ switchTheme }) {
   const { theme } = useTheme();
+  const { user } = useUser()
   return (
     <>
       <div className="container mx-auto items-center">
@@ -39,11 +41,11 @@ export default function LandingNavbar({ switchTheme }) {
               </a>
             </Link>
 
-            <Link href="/api/auth/login">
+            {!user ? <Link href="/api/auth/login">
               <a className="w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-dark-700 dark:text-white transition duration-500 ease-in-out transform border border-green-500 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">
                 Login
               </a>
-            </Link>
+            </Link> : " "}
 
             <div className="mx-3">
               {theme === "light" ? (

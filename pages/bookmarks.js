@@ -10,7 +10,6 @@ export default function Bookmarks() {
   const [bookmarkList, setBookmarks] = useState([]);
   const [isLoading, setLoading] = useState(false);
 
- 
   useEffect(() => {
     setLoading(true);
     async function fetchBookmarks() {
@@ -51,7 +50,6 @@ export default function Bookmarks() {
       error && toast.error("something went wrong");
     }
     fetchBookmarks();
-    
   }, [author]);
 
   return (
@@ -61,14 +59,10 @@ export default function Bookmarks() {
       ) : (
         <ul
           role="list"
-          className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 overflow-y-auto "
+          className={bookmarkList.length > 0 ? "grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 overflow-y-auto" : "flex justify-center"}
         >
           {bookmarkList.length > 0 ? (
-          bookmarkList.map(
-            ({
-              id,
-              postId,
-            }) => (
+            bookmarkList.map(({ id, postId }) => (
               <ArticleCard
                 key={id}
                 id={id}
@@ -80,11 +74,15 @@ export default function Bookmarks() {
                 author={postId.authorId}
                 bookmarks={postId.bookmarks}
               />
-            )
-          )
-        ) : (
-            <h2 className="text-dark-700 dark:text-white">Hey buddy, you have no bookmarks yet. </h2>
-        )}
+            ))
+          ) : 
+          (
+            <div>
+              <h2 className="text-dark-700 text-3xl my-14 dark:text-white">
+                Hey buddy, you have no bookmarks yet.{" "}
+              </h2>
+            </div>
+          )}
         </ul>
       )}
     </div>
