@@ -83,7 +83,7 @@ const Post = ({ post }) => {
   const addLike = async (id, author) => {
     const { data, error } = await supabase
       .from("likes")
-      .insert([{ postId: id, userId: author.id }]);
+      .insert([{ postId: id, userId: author}]);
   };
 
   const removelike = async (id) => {
@@ -96,7 +96,7 @@ const Post = ({ post }) => {
   const addBookmark = async (id, author) => {
     const { data, error } = await supabase
       .from("bookmarks")
-      .insert([{ postId: id, userId: author.id }]);
+      .insert([{ postId: id, userId: author }]);
   };
 
   const removeBookmark = async (id) => {
@@ -210,7 +210,7 @@ const Post = ({ post }) => {
               {user ? (
                 <div className="flex md:flex-col justify-center p-3">
                   <button
-                    onClick={() => clickLike(post.id, post.authorId)}
+                    onClick={() => clickLike(post.id, globalAuthor[0].id)}
                     className="text-center text-white bg-transparent border-0 py-2 px-8 focus:outline-none rounded text-lg m-3"
                   >
                     {liked ? (
@@ -248,7 +248,7 @@ const Post = ({ post }) => {
                     )} 
                   </button>
                   <button
-                    onClick={() => bookmarkPost(post.id, post.authorId)}
+                    onClick={() => bookmarkPost(post.id, globalAuthor[0].id)}
                     className="text-center text-white bg-transparent border-0 py-2 px-8 focus:outline-none rounded text-lg m-3"
                   >
                     {bookmarked ? (

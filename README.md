@@ -69,7 +69,7 @@ You are all set! Open [localhost:3000](http://localhost:3000/) to see the app.
 - [Next JS](https://nextjs.org/)
 - [Auth0](https://auth0.com/): Complete User Authentication
 - [supabase](https://supabase.io/): for database
-- [Formik](https://headlessui.dev/): for managing form state
+- [Formik](https://formik.org/): for managing form state
 - [Vercel](http://vercel.com/): for hosting
 
 ## 🛡️ License
