@@ -206,7 +206,7 @@ const Post = ({ post }) => {
               </div>
             </div>
 
-            <div className=" flex flex-col justify-center w:full md:w-3/12">
+            <div className=" flex flex-col justify-center mx-2 w:full md:w-3/12">
               {user ? (
                 <div className="flex md:flex-col justify-center p-3">
                   <button
@@ -243,7 +243,7 @@ const Post = ({ post }) => {
                           strokeWidth="2"
                           d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                         />
-                      </svg><span>{likesCount}</span>
+                      </svg><span>{likesCount > 0 ? likesCount : ""}</span>
                       </>
                     )} 
                   </button>
@@ -334,7 +334,7 @@ const Post = ({ post }) => {
                   {copied ? "copied" : ""}
                 </p>
               </div>
-              {globalAuthor.id === post.authorId.id  ? (
+              {globalAuthor[0].id === post.authorId.id  ? (
                 <div className=" flex flex-col">
                   <button
                     className="bg-green-transparent hover:bg-green-700 bg-opacity-25 text-green-transparent p-3 rounded border-0 m-3"
@@ -392,7 +392,6 @@ Post.getInitialProps = async (ctx) => {
     )
     .filter("id", "eq", Number(ctx.query.pid))
     .single();
-console.log(Number(ctx.query.pid), ctx.query.pid)
   return { post: data, error: error };
 };
 Post.layout = Admin;
