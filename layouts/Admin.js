@@ -54,7 +54,7 @@ export default function Admin({ children, pageTitle, description }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <meta property="og:title" content={pageTitle} key="ogtitle" />
-+       <meta property="og:description" content={description} key="ogdesc" />
+        <meta property="og:description" content={description} key="ogdesc" />
         <title>{pageTitle}</title>
       </Head>
       <main className="flex flex-col w-full h-full bg-white dark:bg-dark-700 font-ibm">
@@ -71,7 +71,7 @@ export default function Admin({ children, pageTitle, description }) {
             />
           )}
         </div>
-        <div className="flex flex-wrap justify-between items-center flex-row container mx-auto md:px-4">
+        <div className="flex flex-wrap justify-between items-center flex-row container mx-auto px-2 md:px-5">
           <div className="flex">
             <ul className="flex">
               <li
@@ -118,7 +118,7 @@ export default function Admin({ children, pageTitle, description }) {
           <div className="flex items-center">
             <button
               onClick={toggleModal}
-              className=" text-white bg-gradient-to-r lg:mb-0 my-3 lg:my-2 lg:mr-3 from-green-grad-one to-green-grad-two bg-transparent hover:bg-green-900 border-0 py-2 px-6 focus:outline-none rounded text-lg"
+              className=" text-white bg-gradient-to-r mx-2 lg:mb-0 my-3 lg:my-3 lg:mb-4 lg:mr-3 from-green-grad-one to-green-grad-two bg-transparent hover:bg-green-900 border-0 py-2 px-6 focus:outline-none rounded text-lg"
             >
               New Post{" "}
             </button>

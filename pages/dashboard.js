@@ -66,11 +66,11 @@ export default function Dashboard() {
   };
   return (
     <div className="flex flex-col">
-      <div className="flex px-4 mb-3">
-        <div className="flex items-center">
-          <h3 className="px-2">Filter By:</h3>
+      <div className="flex px-2 mb-3">
+        <div className="flex items-center flex-1">
+          <h3 className="px-2 lg:px-4">Filter By:</h3>
         </div>
-        <div className="flex flex-1">
+        <div className="flex pr-2 md:pr-4">
           <Select
             value={selectedOption}
             onChange={handleChange}
@@ -83,7 +83,7 @@ export default function Dashboard() {
       <div className="overflow-y-auto">
         <ul
           role="list"
-          className={ideas.data.posts.length > 0 ? "grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 overflow-y-auto" : "flex justify-center"}
+          className={ideas.data.posts.length > 0 ? "grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 overflow-y-auto lg:px-3" : "flex justify-center"}
         >
           {ideas.data.posts.length > 0 ? (
             ideas.data.posts.map(

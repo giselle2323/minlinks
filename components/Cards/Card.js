@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useRouter } from "next/router";
-import { useQuery } from "react-query";
 import { useUser } from "@auth0/nextjs-auth0";
-import { useFindUser } from "../../hooks/useFindUser";
-import { supabase } from "../../utils/supabase";
 
 export default function ArticleCard({
   title,
@@ -30,10 +27,12 @@ export default function ArticleCard({
     }
   }, [user, bookmarks, likes]);
 
+   console.log(id)
+
   return (
     <div
       onClick={() => router.push(`/post/${id}`)}
-      className="card m-2 cursor-pointer flex flex-col  border border-gray-800 rounded-lg transform hover:-translate-y-1 transition-all duration-200"
+      className="card m-2 cursor-pointer flex flex-col border border-gray-400 rounded-lg transform hover:-translate-y-1 transition-all duration-200"
     >
       <div className="m-3 flex flex-col flex-1">
         <div className="flex flex-wrap justify-between">
@@ -56,7 +55,7 @@ export default function ArticleCard({
         </div>
         <span
           onClick={() => router.push(`/post/${id}`)}
-          className="text-gray-400 mr-3 inline-flex text-center justify-center items-center  leading-none text-sm py-1"
+          className="text-gray-400 mr-3 text-lg inline-flex text-center justify-center items-center  leading-none text-sm py-1"
         >
           {liked ? (
             <svg
@@ -90,7 +89,7 @@ export default function ArticleCard({
 
           {likesCount > 0 ? likesCount : ""}
         </span>
-        <span className="text-gray-400 inline-flex items-center leading-none text-sm mr-3">
+        <span className="text-gray-400 text-lg inline-flex items-center leading-none text-sm mr-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"

@@ -3,9 +3,9 @@ export default function Footer() {
   return (
     <div className="container mx-auto items-center my-5">
       <footer className="text-blueGray-700 transition duration-500 ease-in-out transform  rounded-lg ">
-        <div className="flex flex-col flex-wrap p-5 mx-auto md:items-center md:flex-row">
+        <div className="flex flex-col flex-wrap p-5 mx-auto  md:items-center md:flex-row">
           <Link href="/">
-            <a className="">
+            <a className="self-center">
               <svg
                 width="140"
                 height="53"
@@ -34,7 +34,7 @@ export default function Footer() {
             </a>
           </Link>
 
-          <nav className="flex flex-wrap items-center justify-center text-base mx-auto mr-12">
+          <nav className="flex flex-wrap items-center justify-center text-base mx-auto md:mr-12">
             <p className="text-center px-4 py-1 lg:ml-4  text-xl text-dark-700 dark:text-white">
               Made with ❤️ by Aminat{" "}
             </p>

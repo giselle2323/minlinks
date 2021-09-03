@@ -10,8 +10,6 @@ export default function Bookmarks() {
   const [bookmarkList, setBookmarks] = useState([]);
   const [isLoading, setLoading] = useState(false);
 
-  console.log(bookmarkList, author)
-
   useEffect(() => {
     setLoading(true);
     async function fetchBookmarks() {
@@ -67,7 +65,7 @@ export default function Bookmarks() {
             bookmarkList.map(({ id, postId }) => (
               <ArticleCard
                 key={id}
-                id={id}
+                id={postId.id}
                 title={postId.title}
                 body={postId.body}
                 comments={postId.comments}

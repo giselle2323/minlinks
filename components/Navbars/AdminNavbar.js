@@ -7,7 +7,7 @@ export default function AdminNavbar({ author }) {
         <div>
           <div className="flex flex-row justify-between flex-wrap p-2 md:p-5 w-full lg:flex-row">
             <Link href="/">
-              <a className="justify-center flex-1 focus:outline-none md:ml-auto md:mr-auto">
+              <a className="justify-center flex-1 px-2 focus:outline-none md:ml-auto md:mr-auto">
                 <svg
                   width="140"
                   height="53"
