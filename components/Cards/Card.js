@@ -27,8 +27,6 @@ export default function ArticleCard({
     }
   }, [user, bookmarks, likes]);
 
-   console.log(id)
-
   return (
     <div
       onClick={() => router.push(`/post/${id}`)}
