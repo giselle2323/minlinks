@@ -211,13 +211,13 @@ const Post = ({ post }) => {
                 <div className="flex md:flex-col justify-center p-3">
                   <button
                     onClick={() => clickLike(post.id, globalAuthor[0].id)}
-                    className="text-center text-white bg-transparent border-0 py-2 px-8 focus:outline-none rounded text-lg m-3"
+                    className="text-center flex items-center justify-center text-gray-700 dark:text-white d bg-transparent border-0 py-2 px-8 focus:outline-none rounded text-lg m-3"
                   >
                     {liked ? (
                       <React.Fragment>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
+                        className="h-5 w-5 text-center"
                         viewBox="0 0 20 20"
                         fill="#C96073"
                       >
@@ -226,13 +226,13 @@ const Post = ({ post }) => {
                           d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
                           clipRule="evenodd"
                         />
-                      </svg><span>{likesCount > 0 ? likesCount : ""}</span>
+                      </svg><span className="text-center mx-1">{likesCount > 0 ? likesCount : ""}</span>
                       </React.Fragment>
                     ) : (
                       <>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
+                        className="h-6 w-6 text-center mx-1"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="gray"
@@ -249,12 +249,12 @@ const Post = ({ post }) => {
                   </button>
                   <button
                     onClick={() => bookmarkPost(post.id, globalAuthor[0].id)}
-                    className="text-center text-white bg-transparent border-0 py-2 px-8 focus:outline-none rounded text-lg m-3"
+                    className="text-center flex  text-white justify-center items-center  bg-transparent border-0 py-2 px-8 focus:outline-none rounded text-lg m-3"
                   >
                     {bookmarked ? (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
+                        className="h-5 w-5 text-center"
                         viewBox="0 0 20 20"
                         fill="gray"
                       >
@@ -263,7 +263,7 @@ const Post = ({ post }) => {
                     ) : (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
+                        className="h-6 w-6 text-center"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="gray"
@@ -282,7 +282,7 @@ const Post = ({ post }) => {
                 <div className="flex flex-col justify-center p-3">
                   <button
                     onClick={() => router.push("/api/auth/login")}
-                    className="text-center text-white bg-transparent border-0 py-2 px-8 focus:outline-none rounded text-lg m-3"
+                    className="text-center flex items-center text-white justify-center bg-transparent border-0 py-2 px-8 focus:outline-none rounded text-lg m-3"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -301,7 +301,7 @@ const Post = ({ post }) => {
                   </button>
                   <button
                     onClick={() => router.push("/api/auth/login")}
-                    className="text-center text-white bg-transparent border-0 py-2 px-8 focus:outline-none rounded text-lg m-3"
+                    className="text-center flex items-center  text-white justify-center bg-transparent border-0 py-2 px-8 focus:outline-none rounded text-lg m-3"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
