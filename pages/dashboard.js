@@ -1,17 +1,19 @@
-import React, { useState, useContext, useRef } from "react";
+import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { supabase } from "../utils/supabase";
+import React, { useContext, useRef, useState } from "react";
 import { QueryClient, useQuery } from "react-query";
 import { dehydrate } from "react-query/hydration";
-import { useUser } from "@auth0/nextjs-auth0";
-import { SupabaseUserContext } from "../context/userContext";
-import { toast } from "react-toastify";
 import Select from "react-select";
-import { fetchArticlesIdeas } from "../hooks/useArticles";
+import { toast } from "react-toastify";
+
 import ArticleCard from "../components/Cards/Card";
 import Loader from "../components/Loader/loader";
+import { SupabaseUserContext } from "../context/userContext";
+import { fetchArticlesIdeas } from "../hooks/useArticles";
 import Admin from "../layouts/Admin";
+import { supabase } from "../utils/supabase";
+
 export default function Dashboard() {
   const author = useContext(SupabaseUserContext);
   const { user, error, loading } = useUser();
@@ -83,7 +85,7 @@ export default function Dashboard() {
       <div className="overflow-y-auto">
         <ul
           role="list"
-          className={ideas.data.posts.length > 0 ? "grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 overflow-y-auto lg:px-3" : "flex justify-center"}
+          className={ideas && ideas.data.posts.length > 0 ? "grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 overflow-y-auto lg:px-3" : "flex justify-center"}
         >
           {ideas.data.posts.length > 0 ? (
             ideas.data.posts.map(
