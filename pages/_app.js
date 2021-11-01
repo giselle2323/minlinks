@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
               <Component {...pageProps} />
             </Layout>
             <ToastContainer
-              pposition="top-right"
+              position="top-right"
               autoClose={5000}
               hideProgressBar={false}
               newestOnTop={false}
@@ -31,6 +31,8 @@ function MyApp({ Component, pageProps }) {
               pauseOnFocusLoss
               draggable
               pauseOnHover
+              theme="dark"
+              icon={false}
             />
           </ThemeProvider>
         </Hydrate>

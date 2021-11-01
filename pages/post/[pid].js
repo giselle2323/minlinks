@@ -334,7 +334,7 @@ const Post = ({ post }) => {
                   {copied ? "copied" : ""}
                 </p>
               </div>
-              {globalAuthor[0].id === post.authorId.id  ? (
+              {/* {globalAuthor && globalAuthor[0].id === post.authorId.id  ? (
                 <div className=" flex flex-col">
                   <button
                     className="bg-green-transparent hover:bg-green-700 bg-opacity-25 text-green-transparent p-3 rounded border-0 m-3"
@@ -351,7 +351,7 @@ const Post = ({ post }) => {
                 </div>
               ) : (
                 ""
-              )}
+              )} */}
             </div>
           </div>
         </section>
