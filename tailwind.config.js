@@ -1,14 +1,10 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
-
 module.exports = {
-  mode: '',
-  purge:{
-    content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-    options: {
-      safelist: [
-        'dark'
-      ]
-    },
+  content: ["./pages/**/*.{js,ts,jsx,tsx}",
+  "./components/**/*.{js,ts,jsx,tsx}"],
+  options: {
+    safelist: [
+      'dark'
+    ]
   },
   darkMode: 'class', // or 'media' or 'class'
   theme: {
@@ -45,6 +41,6 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/custom-forms')
+    require("@tailwindcss/forms")
   ]
 }
