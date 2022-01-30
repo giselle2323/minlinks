@@ -89,10 +89,10 @@ export default function Landing({ pageTitle, description }) {
                             </g>
                           </svg>
                         </span>
-                        <h3 className="mt-12 mb-6 text-3xl font-bold font-heading text-white">
+                        <h3 className="mt-12 mb-6 text-3xl font-bold font-heading dark:text-white text-dark-700">
                           Frequently updated resources
                         </h3>
-                        <p className="text-lg text-gray-200">
+                        <p className="text-lg">
                           The brown me quam, sagittis porttitor lorem vel,
                           commodo fringilla nisl.
                         </p>
@@ -121,10 +121,10 @@ export default function Landing({ pageTitle, description }) {
                             </g>
                           </svg>
                         </span>
-                        <h3 className="mt-12 mb-6 text-3xl font-bold font-heading text-white">
+                        <h3 className="mt-12 mb-6 text-3xl font-bold font-heading dark:text-white text-dark-700">
                           Categorized Resources
                         </h3>
-                        <p className="text-lg text-gray-200">
+                        <p className="text-lg">
                           It’s over, maecenas tincidunt malesuada dolor sit amet
                           malesuada.
                         </p>
@@ -161,10 +161,10 @@ export default function Landing({ pageTitle, description }) {
                             </g>
                           </svg>
                         </span>
-                        <h3 className="mt-12 mb-6 text-3xl font-bold font-heading text-white">
+                        <h3 className="mt-12 mb-6 text-3xl font-bold font-heading dark:text-white text-dark-700">
                           Weekly Updated Resources
                         </h3>
-                        <p className="text-lg text-gray-200">
+                        <p className="text-lg">
                           The brown me quam, sagittis porttitor lorem vel,
                           commodo fringilla nisl.
                         </p>
