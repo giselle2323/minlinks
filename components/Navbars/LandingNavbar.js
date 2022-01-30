@@ -1,15 +1,15 @@
-import React from "react";
-import Link from "next/link";
-import { useTheme } from "next-themes";
 import { useUser } from "@auth0/nextjs-auth0";
+import { useTheme } from "next-themes";
+import Link from "next/link";
+import React from "react";
 
 export default function LandingNavbar({ switchTheme }) {
   const { theme } = useTheme();
   const { user } = useUser()
   return (
     <>
-      <div className="container mx-auto items-center">
-        <div className="transition duration-500 ease-in-out transform my-2 ">
+      <div className="container mx-auto items-center mb-4">
+        <nav className="transition duration-500 ease-in-out transform my-2 ">
           <div className="flex flex-row items-center p-5 w-full lg:flex-row">
             <Link href="/">
               <a className="justify-center flex-1 focus:outline-none md:ml-auto md:mr-auto">
@@ -83,7 +83,7 @@ export default function LandingNavbar({ switchTheme }) {
               )}
             </div>
           </div>
-        </div>
+        </nav>
       </div>
     </>
   );

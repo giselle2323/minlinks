@@ -16,7 +16,8 @@ module.exports = {
         blue: {
           'light_400': '#F4F7FE',
           'light_500': '#2563EB',
-          'light_600': '#2B3674'
+          'light_600': '#2B3674',
+          'light_700': '#18243b',
         },
         gray:{
           700: '#707EAE',
