@@ -66,8 +66,8 @@ export default function Dashboard() {
   };
   return (
     <div className="flex flex-col">
-      <div className="flex px-2 mb-3">
-        <div className="flex items-center flex-1">
+      <div className="flex justify-end px-2 mb-3">
+        <div className="flex items-center">
           <h3 className="px-2 lg:px-4">Filter By:</h3>
         </div>
         <div className="flex pr-2 md:pr-4">
