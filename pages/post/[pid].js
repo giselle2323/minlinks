@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 import moment from "moment";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { SupabaseUserContext } from "../../context/userContext";
 import { useUser } from "@auth0/nextjs-auth0";
 import { supabase } from "../../utils/supabase";
-import Loader from "../../components/Loader/loader";
+import Loader from "../../public/images/icons/three-dots-loader.svg";
 import Admin from "../../layouts/Admin";
 import EditPostModal from "../../components/Modals/EditPost";
 import CommentPostModal from "../../components/Modals/commentPostModal";
@@ -18,7 +19,7 @@ const Post = ({ post }) => {
   const globalAuthor = useContext(SupabaseUserContext);
   const { user } = useUser();
   const [liked, setLiked] = useState(false);
-  const [likesCount, setLikes] = useState(post.likes.length);
+  const [likesCount, setLikes] = useState(post?.likes.length);
   const [bookmarked, setBookmarked] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [showEditPostModal, setShowEditPostModal] = useState(false);
@@ -36,7 +37,7 @@ const Post = ({ post }) => {
       bookmrk.length > 0 ? setBookmarked(true) : setBookmarked(false);
     }
     setLoading(false);
-  }, [user, post.bookmarks, post.likes]);
+  }, [user, post?.bookmarks, post?.likes]);
 
   const clickLike = async (id, author) => {
     if (user) {
@@ -108,8 +109,10 @@ const Post = ({ post }) => {
 
   return (
     <>
-      {isLoading ? (
-        <Loader />
+      {isLoading || !post?.id ? (
+       <div className="h-[500px] flex flex-col justify-center items-center">
+          <Image src={Loader} alt="loader" />
+       </div>
       ) : (
         <section className="text-white flex justify-center w-full h-full">
           {showEditPostModal && (
@@ -137,7 +140,7 @@ const Post = ({ post }) => {
               <div className="flex justify-between items-center">
                 <div className="flex-1">
                   <h1 className="title-font text-2xl font-medium capitalize py-2">
-                    {post.title}
+                    {post?.title}
                   </h1>
                   <p className="text-base mb-4 dark:text-opacity-25">
                     <span className="text-base normalcase">
@@ -145,7 +148,7 @@ const Post = ({ post }) => {
                         "MMMM Do YYYY, h:mm:ss a"
                       )}
                     </span>{" "}
-                    by {post.authorId.name}
+                    by {post?.authorId.name}
                   </p>
                 </div>
               </div>

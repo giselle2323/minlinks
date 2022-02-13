@@ -1,12 +1,13 @@
-import React, { useState, useEffect} from "react";
-import Head from "next/head";
-import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
-import { supabase } from "../utils/supabase";
+import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+
 import AddPost from "../components/Modals/AddPostModal";
-import { SupabaseUserProvider } from "../context/userContext";
 import AdminNavbar from "../components/Navbars/AdminNavbar";
+import { SupabaseUserProvider } from "../context/userContext";
+import { supabase } from "../utils/supabase";
 
 export default function Admin({ children, pageTitle, description }) {
   const [showAddPostModal, setShowAddPostModal] = useState(false);
@@ -71,7 +72,7 @@ export default function Admin({ children, pageTitle, description }) {
             />
           )}
         </div>
-        <div className="flex flex-wrap justify-between items-center flex-row container mx-auto px-2 md:px-5">
+        <div className="flex flex-wrap justify-between items-center flex-row container mx-auto px-2 md:px-5 mb-6">
           <div className="flex">
             <ul className="flex">
               <li

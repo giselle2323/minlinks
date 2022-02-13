@@ -819,20 +819,24 @@ select{
   margin-bottom: 0.5rem;
 }
 
-.mr-1{
-  margin-right: 0.25rem;
-}
-
 .mr-3{
   margin-right: 0.75rem;
 }
 
-.mt-2{
-  margin-top: 0.5rem;
+.mr-1{
+  margin-right: 0.25rem;
+}
+
+.ml-auto{
+  margin-left: auto;
 }
 
 .mr-2{
   margin-right: 0.5rem;
+}
+
+.mt-2{
+  margin-top: 0.5rem;
 }
 
 .ml-3{
@@ -1068,6 +1072,10 @@ select{
   align-self: center;
 }
 
+.justify-self-end{
+  justify-self: end;
+}
+
 .overflow-hidden{
   overflow: hidden;
 }
@@ -1198,7 +1206,7 @@ select{
 }
 
 .to-green-grad-two{
-  --tw-gradient-to:  #8CC3AE;
+  --tw-gradient-to: #8CC3AE;
 }
 
 .p-6{
@@ -1424,14 +1432,14 @@ select{
   color: rgb(23 203 73 / var(--tw-text-opacity));
 }
 
-.text-teal-800{
-  --tw-text-opacity: 1;
-  color: rgb(17 94 89 / var(--tw-text-opacity));
-}
-
 .text-gray-400{
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.text-teal-800{
+  --tw-text-opacity: 1;
+  color: rgb(17 94 89 / var(--tw-text-opacity));
 }
 
 .text-red-500{
@@ -1551,6 +1559,10 @@ body {
 
 .css-2b097c-container {
   width: 185px;
+}
+
+.card__tag {
+  background-color: rgba(37, 56, 81, 0.24);
 }
 
 .hover\:-translate-y-1:hover{
@@ -1744,10 +1756,6 @@ body {
 
   .md\:items-center{
     align-items: center;
-  }
-
-  .md\:p-5{
-    padding: 1.25rem;
   }
 
   .md\:px-32{

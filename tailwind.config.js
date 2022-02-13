@@ -31,7 +31,8 @@ module.exports = {
           'transparent': '#17CB49',
           'gradient': 'linear-gradient(#4DB68D, #8CC3AE)',
           'grad-one': '#4DB68D',
-          'grad-two':' #8CC3AE'
+          'grad-two':'#8CC3AE',
+          "brand-04": "rgb(74 222 128)"
         }
       }
     },

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
+import { useRouter } from "next/router";
+import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
 
 export default function ArticleCard({
   title,
@@ -46,19 +46,15 @@ export default function ArticleCard({
         </div>
       </div>
       <div className="m-3 flex items-center">
-        <div>
-          <h2 className="text-sm text-teal-800 dark:text-white text-center font-mono mr-1 bg-green-transparent bg-opacity-75 rounded px-2">
-            {tag}
-          </h2>
-        </div>
-        <span
+        
+        <div
           onClick={() => router.push(`/post/${id}`)}
           className="text-gray-400 mr-3 text-lg inline-flex text-center justify-center items-center  leading-none text-sm py-1"
         >
           {liked ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className="h-6 w-6 mr-1"
               viewBox="0 0 20 20"
               fill="#C96073"
             >
@@ -71,7 +67,7 @@ export default function ArticleCard({
           ) : (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className="h-6 w-6 mr-1"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -86,11 +82,11 @@ export default function ArticleCard({
           )}
 
           {likesCount > 0 ? likesCount : ""}
-        </span>
-        <span className="text-gray-400 text-lg inline-flex items-center leading-none text-sm mr-3">
+        </div>
+        <div className="text-gray-400 text-lg inline-flex items-center leading-none text-sm mr-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
+            className="h-6 w-6 mr-1"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -103,15 +99,15 @@ export default function ArticleCard({
             />
           </svg>
           {comments.length ? comments.length : ""}
-        </span>
-        <span
+        </div>
+        <div
           onClick={() => router.push(`/post/${id}`)}
           className="text-gray-400 inline-flex items-center leading-none text-sm"
         >
           {bookmarked ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className="h-6 w-6 mr-1"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -120,7 +116,7 @@ export default function ArticleCard({
           ) : (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className="h-6 w-6 mr-1"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -133,7 +129,12 @@ export default function ArticleCard({
               />
             </svg>
           )}
-        </span>
+        </div>
+        <div className="justify-self-end ml-auto">
+          <h2 className="text-sm text-teal-800 dark:text-white text-center font-mono mr-2 card__tag rounded px-4 py-2">
+            {tag}
+          </h2>
+        </div>
       </div>
     </div>
   );

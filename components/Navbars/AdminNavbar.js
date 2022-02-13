@@ -1,11 +1,12 @@
-import React, { useState } from "react";
 import Link from "next/link";
+import React, { useState } from "react";
+
 export default function AdminNavbar({ author }) {
   return (
     <>
       <div className="container mx-auto items-center">
         <div>
-          <div className="flex flex-row justify-between flex-wrap p-2 md:p-5 w-full lg:flex-row">
+          <div className="flex flex-row justify-between flex-wrap p-2 w-full lg:flex-row">
             <Link href="/">
               <a className="justify-center flex-1 px-2 focus:outline-none md:ml-auto md:mr-auto">
                 <svg
