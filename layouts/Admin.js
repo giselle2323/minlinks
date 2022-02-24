@@ -78,7 +78,7 @@ export default function Admin({ children, pageTitle, description }) {
               <li
                 className={
                   router.pathname == "/dashboard"
-                    ? "text-green-transparent my-3 lg:m-3 mx-2"
+                    ? "text-green-transparent dark:text-green-800 my-3 lg:m-3 mx-2"
                     : "lg:m-3 my-3 mx-2"
                 }
               >

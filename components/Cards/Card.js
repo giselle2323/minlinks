@@ -40,7 +40,7 @@ export default function ArticleCard({
         </div>
         <div className="flex flex-col flex-1">
           {" "}
-          <p className="font-extralight text-sm text-dark-700 dark:text-gray-400 leading-loose transition-all duration-200 flex-1 ellipsis">
+          <p className="font-light text-sm text-dark-700 dark:text-gray-400 leading-loose transition-all duration-200 flex-1 ellipsis">
             {body}
           </p>
         </div>
@@ -131,7 +131,7 @@ export default function ArticleCard({
           )}
         </div>
         <div className="justify-self-end ml-auto">
-          <h2 className="text-sm text-teal-800 dark:text-white text-center font-mono mr-2 card__tag rounded px-4 py-2">
+          <h2 className="text-sm text-green-700 dark:text-white text-center font-mono mr-2 card__tag rounded px-4 py-2">
             {tag}
           </h2>
         </div>
