@@ -43,7 +43,7 @@ export default function Landing({ pageTitle, description }) {
           <div className="container px-5 py-24 mx-auto">
             <div className="flex flex-wrap w-full flex-col items-center text-center mb-4">
               <h1 className="sm:text-3xl text-2xl font-medium title-font py-4 font-ibm text-dark-700 dark:text-white">
-                How I manage Articool
+                Features of Minotes
               </h1>
             </div>
             <div className="relative py-4 overflow-hidden">
@@ -54,47 +54,33 @@ export default function Landing({ pageTitle, description }) {
                       <div className="p-8 border border-blue-light_700 rounded-lg h-[400px]">
                         <span className="flex mb-14 justify-center items-center w-20 h-20 bg-blue-500 rounded-lg">
                           <svg
-                            className="w-8 h-8"
-                            width="35"
-                            height="35"
-                            viewBox="0 0 35 35"
-                            fill="none"
                             xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            strokeWidth="1.5"
+                            fill="none"
+                            strokeLinejoin="arcs"
+                            strokeLinecap="square"
+                            viewBox="0 0 24 24"
                           >
-                            <g clipPath="url(#clip0)">
+                            {" "}
+                            <g fill="none" fillRule="evenodd">
+                              <rect
+                                width="24"
+                                height="24"
+                              ></rect>
                               <path
-                                d="M22.6042 34.9999H2.1875C0.981458 34.9999 0 34.0185 0 32.8124V12.3958C0 11.1897 0.981458 10.2083 2.1875 10.2083H22.6042C23.8102 10.2083 24.7917 11.1897 24.7917 12.3958V32.8124C24.7917 34.0185 23.8102 34.9999 22.6042 34.9999ZM2.1875 11.6666C1.78646 11.6666 1.45833 11.9933 1.45833 12.3958V32.8124C1.45833 33.2149 1.78646 33.5416 2.1875 33.5416H22.6042C23.0052 33.5416 23.3333 33.2149 23.3333 32.8124V12.3958C23.3333 11.9933 23.0052 11.6666 22.6042 11.6666H2.1875Z"
-                                fill="white"
-                              ></path>
-                              <path
-                                d="M34.2702 5.83333C33.8677 5.83333 33.541 5.50667 33.541 5.10417V3.64583C33.541 2.43979 32.5596 1.45833 31.3535 1.45833H29.8952C29.4927 1.45833 29.166 1.13167 29.166 0.729167C29.166 0.326667 29.4927 0 29.8952 0H31.3535C33.3646 0 34.9993 1.63625 34.9993 3.64583V5.10417C34.9993 5.50667 34.6727 5.83333 34.2702 5.83333Z"
-                                fill="white"
-                              ></path>
-                              <path
-                                d="M6.56217 5.83333C6.15967 5.83333 5.83301 5.50667 5.83301 5.10417V3.64583C5.83301 1.63625 7.4678 0 9.47884 0H10.9372C11.3397 0 11.6663 0.326667 11.6663 0.729167C11.6663 1.13167 11.3397 1.45833 10.9372 1.45833H9.47884C8.2728 1.45833 7.29134 2.43979 7.29134 3.64583V5.10417C7.29134 5.50667 6.96467 5.83333 6.56217 5.83333Z"
-                                fill="white"
-                              ></path>
-                              <path
-                                d="M24.0618 1.45833H16.7702C16.3677 1.45833 16.041 1.13167 16.041 0.729167C16.041 0.326667 16.3677 0 16.7702 0H24.0618C24.4643 0 24.791 0.326667 24.791 0.729167C24.791 1.13167 24.4643 1.45833 24.0618 1.45833Z"
-                                fill="white"
-                              ></path>
-                              <path
-                                d="M31.3535 29.1666H29.8952C29.4927 29.1666 29.166 28.8399 29.166 28.4374C29.166 28.0349 29.4927 27.7083 29.8952 27.7083H31.3535C32.5596 27.7083 33.541 26.7268 33.541 25.5208V24.0624C33.541 23.6599 33.8677 23.3333 34.2702 23.3333C34.6727 23.3333 34.9993 23.6599 34.9993 24.0624V25.5208C34.9993 27.5303 33.3646 29.1666 31.3535 29.1666Z"
-                                fill="white"
-                              ></path>
-                              <path
-                                d="M34.2702 18.9583C33.8677 18.9583 33.541 18.6316 33.541 18.2291V10.9374C33.541 10.5349 33.8677 10.2083 34.2702 10.2083C34.6727 10.2083 34.9994 10.5349 34.9994 10.9374V18.2291C34.9994 18.6316 34.6727 18.9583 34.2702 18.9583Z"
-                                fill="white"
+                                d="M2 12c0 5.523 4.414 10 9.936 10S19.704 18.436 22 15.684h0M22 12c0-5.523-4.455-10-9.968-10-5.035 0-7.304 2.892-9.427 5.562l-.303.38L2 8.316m20 12.632v-5.263h-5.263M2 3.053v5.263h5.263"
+                                stroke="#ffffff"
                               ></path>
                             </g>
                           </svg>
                         </span>
-                        <h3 className="mt-12 mb-6 text-3xl font-bold font-heading dark:text-white text-dark-700">
+                        <h3 className="mt-12 mb-6 text-2xl font-normal font-heading dark:text-white text-dark-700">
                           Frequently updated resources
                         </h3>
-                        <p className="text-lg">
-                          The brown me quam, sagittis porttitor lorem vel,
-                          commodo fringilla nisl.
+                        <p className="text-lg text-white text-opacity-70 text-opacity-70 text-dark-700">
+                         Minotes is updated weekly with unique and amazing resources all over the internet.
                         </p>
                       </div>
                     </div>
@@ -121,12 +107,11 @@ export default function Landing({ pageTitle, description }) {
                             </g>
                           </svg>
                         </span>
-                        <h3 className="mt-12 mb-6 text-3xl font-bold font-heading dark:text-white text-dark-700">
-                          Categorized Resources
+                        <h3 className="mt-12 mb-6 text-2xl font-normal font-heading dark:text-white text-dark-700">
+                          Categorized resources
                         </h3>
-                        <p className="text-lg">
-                          It’s over, maecenas tincidunt malesuada dolor sit amet
-                          malesuada.
+                        <p className="text-lg dark:text-white dark:text-opacity-70 text-opacity-70 text-dark-700">
+                        Each resource has a tag to help you identify it's category easily.
                         </p>
                       </div>
                     </div>
@@ -161,12 +146,11 @@ export default function Landing({ pageTitle, description }) {
                             </g>
                           </svg>
                         </span>
-                        <h3 className="mt-12 mb-6 text-3xl font-bold font-heading dark:text-white text-dark-700">
-                          Weekly Updated Resources
+                        <h3 className="mt-12 mb-6 text-2xl font-normal font-heading dark:text-white text-dark-700">
+                          Open Source
                         </h3>
-                        <p className="text-lg">
-                          The brown me quam, sagittis porttitor lorem vel,
-                          commodo fringilla nisl.
+                        <p className="text-lg text-white text-opacity-70 text-opacity-70 text-dark-700">
+                          Everyone can contribute to minotes, to contribute please visit the github repo.
                         </p>
                       </div>
                     </div>

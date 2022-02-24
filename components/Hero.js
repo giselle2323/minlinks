@@ -13,8 +13,8 @@ export default function Hero() {
           <h1 className="title-font text-5xl lg:6xl mb-4 font-medium leading-normal py-4">
             Curating amazing resouces that I have found on the internet for YOU.
           </h1>
-          <p className="mb-8 text-opacity-75 text-dark-700 dark:text-white dark:text-opacity-25 leading-relaxed font-normal  ">
-            Browse through many cool resources that cuts across web development
+          <p className="mb-8 text-opacity-70 text-dark-700 dark:text-white dark:text-opacity-70 leading-relaxed font-normal  ">
+            Browse through many cool resources that cuts across web development and other fields.
           </p>
           <div className="flex justify-center">
             <Link href="/dashboard">
