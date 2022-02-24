@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import useDarkMode from "../hooks/useDarkMode";
 import memoji from "../public/black-hero.svg";
-import lightMemoji from "../public/white-hero.svg";
+import lightMemoji from "../public/light-hero.png";
 
 export default function Hero() {
   return (

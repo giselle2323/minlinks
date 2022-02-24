@@ -40,7 +40,7 @@ export default function ArticleCard({
         </div>
         <div className="flex flex-col flex-1">
           {" "}
-          <p className="font-light font-mono text-sm text-dark-700 dark:text-gray-400 transition-all duration-200 flex-1 ellipsis">
+          <p className="font-extralight text-sm text-dark-700 dark:text-gray-400 leading-loose transition-all duration-200 flex-1 ellipsis">
             {body}
           </p>
         </div>
