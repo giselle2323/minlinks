@@ -79,7 +79,7 @@ export default function Landing({ pageTitle, description }) {
                         <h3 className="mt-12 mb-6 text-2xl font-normal font-heading dark:text-white text-dark-700">
                           Frequently updated resources
                         </h3>
-                        <p className="text-lg text-white text-opacity-70 text-opacity-70 text-dark-700">
+                        <p className="text-lg dark:text-white dark:text-opacity-70 text-opacity-70 text-dark-700">
                          Minotes is updated weekly with unique and amazing resources all over the internet.
                         </p>
                       </div>
@@ -149,7 +149,7 @@ export default function Landing({ pageTitle, description }) {
                         <h3 className="mt-12 mb-6 text-2xl font-normal font-heading dark:text-white text-dark-700">
                           Open Source
                         </h3>
-                        <p className="text-lg text-white text-opacity-70 text-opacity-70 text-dark-700">
+                        <p className="text-lg dark:text-white dark:text-opacity-70 text-opacity-70 text-dark-700">
                           Everyone can contribute to minotes, to contribute please visit the github repo.
                         </p>
                       </div>

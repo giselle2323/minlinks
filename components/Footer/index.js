@@ -37,7 +37,7 @@ export default function Footer() {
 
           <nav className="flex flex-wrap items-center justify-center text-base mx-auto md:mr-12">
             <p className="text-center px-4 py-1 lg:ml-4  text-xl text-dark-700 dark:text-white">
-              Made with ❤️ by Aminat{" "}
+              Made with ❤️ by Minna{" "}
             </p>
           </nav>
           <span className="inline-flex justify-center mt-2 mr-2 sm:ml-auto sm:mt-0 sm:justify-start">
