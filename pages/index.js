@@ -111,7 +111,7 @@ export default function Landing({ pageTitle, description }) {
                           Categorized resources
                         </h3>
                         <p className="text-lg dark:text-white dark:text-opacity-70 text-opacity-70 text-dark-700">
-                        Each resource has a tag to help you identify it's category easily.
+                        Each resource has a tag to help you identify it&apos;s category easily.
                         </p>
                       </div>
                     </div>
