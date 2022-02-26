@@ -28,9 +28,9 @@ export default function Landing({ pageTitle, description }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <meta property="og:title" content={pageTitle} key="ogtitle" />
-        <meta property="og:description" content={description} key="ogdesc" />
-        <title>{pageTitle}</title>
+        <meta property="og:title" content="Minlinks Homepage" key="ogtitle" />
+        <meta property="og:description" content="Public bookmark with unique resource thats cuts across different subjects" key="ogdesc" />
+        <title>Minlinks Homepage</title>
       </Head>
       <div className="flex flex-col w-full bg-white dark:bg-dark-700">
         <header>
