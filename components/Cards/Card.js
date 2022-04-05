@@ -131,7 +131,7 @@ export default function ArticleCard({
           )}
         </div>
         <div className="justify-self-end ml-auto">
-          <h2 className="text-sm text-green-700 dark:text-white text-center font-mono mr-2 card__tag rounded px-4 py-2">
+          <h2 className="text-sm text-green-700 dark:text-white border dark:border-gray-700 border-gray-400 text-center font-mono mr-2 card__tag rounded px-4 py-2">
             {tag}
           </h2>
         </div>
