@@ -33,8 +33,8 @@ export default function LandingNavbar({ switchTheme }) {
                       y2="37"
                       gradientUnits="userSpaceOnUse"
                     >
-                      <stop stopColor="#4DB68D" />
-                      <stop offset="1" stopColor="#8CC3AE" />
+                      <stop stopColor="#E7755F" />
+                      <stop offset="1" stopColor="#E7755F" />
                     </linearGradient>
                   </defs>
                 </svg>

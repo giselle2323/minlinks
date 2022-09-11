@@ -30,7 +30,7 @@ export default function ArticleCard({
   return (
     <div
       onClick={() => router.push(`/post/${id}`)}
-      className="card m-2 cursor-pointer flex flex-col border border-dark-700 dark:border-blue-light_700 rounded-lg transform hover:-translate-y-1 transition-all duration-200"
+      className="card m-2 cursor-pointer flex flex-col border border-dark-700 dark:border-gray-800 rounded-lg transform hover:-translate-y-1 transition-all duration-200"
     >
       <div className="m-3 flex flex-col flex-1">
         <div className="flex flex-wrap justify-between">
@@ -131,7 +131,7 @@ export default function ArticleCard({
           )}
         </div>
         <div className="justify-self-end ml-auto">
-          <h2 className="text-sm text-green-700 dark:text-white border dark:border-gray-700 border-gray-400 text-center font-mono mr-2 card__tag rounded px-4 py-2">
+          <h2 className="text-sm text-green-700 dark:text-white border dark:border-yellow-300 border-gray-400 text-center font-mono mr-2 card__tag rounded px-4 py-2">
             {tag}
           </h2>
         </div>

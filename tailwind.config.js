@@ -24,14 +24,14 @@ module.exports = {
          
         },
         dark: {
-          '700': '#0e182a',
+          '700': '#131419',
           '500': '#142035'
         },
         green: {
           'transparent': '#17CB49',
-          'gradient': 'linear-gradient(#4DB68D, #8CC3AE)',
-          'grad-one': '#4DB68D',
-          'grad-two':'#8CC3AE',
+          'gradient': 'linear-gradient(#E7755F, #E7755F)',
+          'grad-one': '#f2c384',
+          'grad-two':'#f2c384',
           "brand-04": "rgb(74 222 128)"
         }
       }

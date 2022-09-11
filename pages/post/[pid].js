@@ -326,10 +326,10 @@ const Post = ({ post }) => {
               <div className=" flex flex-col">
                 {/* Get App's URL */}
                 <CopyToClipboard
-                  text={`https://articool-main.vercel.app/posts/${post.id}`}
+                  text={`https://minlinks.vercel.app/posts/${post.id}`}
                   onCopy={() => setCopied(true)}
                 >
-                  <button className="bg-dark-500 border border-gray-800 bg-opacity-25 text-dark-700 dark:text-white p-3 rounded border-0 m-3">
+                  <button className="border border-green-grad-one  text-dark-700 dark:text-white p-3 rounded m-3">
                     Share Post
                   </button>
                 </CopyToClipboard>

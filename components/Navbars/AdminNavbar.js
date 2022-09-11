@@ -9,7 +9,7 @@ export default function AdminNavbar({ author }) {
           <div className="flex flex-row justify-between flex-wrap p-2 w-full lg:flex-row">
             <Link href="/">
               <a className="justify-center flex-1 px-2 focus:outline-none md:ml-auto md:mr-auto">
-                <svg
+              <svg
                   width="165"
                   height="37"
                   viewBox="0 0 165 37"
@@ -29,8 +29,8 @@ export default function AdminNavbar({ author }) {
                       y2="37"
                       gradientUnits="userSpaceOnUse"
                     >
-                      <stop stopColor="#4DB68D" />
-                      <stop offset="1" stopColor="#8CC3AE" />
+                      <stop stopColor="#f2c384" />
+                      <stop offset="1" stopColor="#f2c384" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -41,14 +41,14 @@ export default function AdminNavbar({ author }) {
               {author.length > 0 ? (
                 <div className="lg:flex lg:flex-row justify-end items-center">
                   <Link href="/api/auth/logout">
-                    <a className="block w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-dark-700 dark:text-white  transition duration-500 ease-in-out transform bg-transparent border border-dark-700  dark:border-white rounded-md">
+                    <a className="block w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-dark-700 dark:text-white  transition duration-500 ease-in-out transform bg-transparent border  dark:border-green-grad-one rounded-md">
                       Logout
                     </a>
                   </Link>
                 </div>
               ) : (
                 <Link href={"/api/auth/login"}>
-                  <a className="block w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-dark-700 dark:text-white  transition duration-500 ease-in-out transform bg-transparent border border-dark-700  dark:border-white rounded-md">
+                  <a className="block w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-dark-700 dark:text-green-grad-one  transition duration-500 ease-in-out transform bg-transparent border dark:border-green-grad-one rounded-md">
                     Login{" "}
                   </a>
                 </Link>

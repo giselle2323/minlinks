@@ -78,7 +78,7 @@ export default function Admin({ children, pageTitle, description }) {
               <li
                 className={
                   router.pathname == "/dashboard"
-                    ? "text-green-transparent dark:text-green-800 my-3 lg:m-3 mx-2"
+                    ? "text-red-600 dark:text-red-600 my-3 lg:m-3 mx-2"
                     : "lg:m-3 my-3 mx-2"
                 }
               >
@@ -119,7 +119,7 @@ export default function Admin({ children, pageTitle, description }) {
           <div className="flex items-center">
             <button
               onClick={toggleModal}
-              className=" text-white bg-gradient-to-r mx-2 lg:mb-0 my-3 lg:my-3 lg:mb-4 lg:mr-3 from-green-grad-one to-green-grad-two bg-transparent hover:bg-green-900 border-0 py-2 px-6 focus:outline-none rounded text-lg"
+              className="text-black mx-2 lg:mb-0 my-3 lg:my-3 lg:mb-4 lg:mr-3 py-2 px-6 rounded text-lg"
             >
               New Post{" "}
             </button>
