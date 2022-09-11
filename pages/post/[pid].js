@@ -401,7 +401,7 @@ export async function getStaticProps(ctx) {
   return { post: data, error: error };
 };
 
-export async function getStaticPaths() {
+export async function getStaticPaths(ctx) {
 
   const { data, error } = await supabase
   .from("posts")
