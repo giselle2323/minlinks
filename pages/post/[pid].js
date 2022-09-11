@@ -400,3 +400,40 @@ export async function getStaticProps() {
     .single();
   return { post: data, error: error };
 };
+
+export async function getStaticPaths() {
+
+  const { data, error } = await supabase
+  .from("posts")
+  .select(
+    `
+  id, 
+  title, 
+  body, 
+  tag, 
+  links,
+  authorId(id, name, email),
+  created_at,
+  comments(
+    id, 
+    body,
+    userId(id, name),
+    created_at
+  ),
+  likes(
+    id,
+    postId,
+    userId(id, name, email)
+  ),
+  bookmarks(
+    id,
+    postId,
+    userId(id, name, email)
+  )
+`
+  )
+  .filter("id", "eq", Number(ctx.query.pid))
+  .single();
+return { post: data, error: error, fallback: false };
+
+}
