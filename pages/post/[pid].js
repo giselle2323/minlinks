@@ -401,7 +401,7 @@ export async function getStaticProps(ctx) {
   return { post: data, error: error };
 };
 
-export async function getStaticPaths(ctx) {
+export async function getStaticPaths() {
 
   const { data, error } = await supabase
   .from("posts")
@@ -432,8 +432,9 @@ export async function getStaticPaths(ctx) {
   )
 `
   )
-  .filter("id", "eq", Number(ctx.query.pid))
-  .single();
-return { post: data, error: error, fallback: false };
+  const paths = data.map(post => ({
+    params: {id: post.id}
+  }))
+return { paths, fallback: false };
 
 }
