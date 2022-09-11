@@ -363,7 +363,10 @@ const Post = ({ post }) => {
   );
 };
 
-Post.getInitialProps = async (ctx) => {
+export default Post;
+Post.layout = Admin;
+
+export async function getStaticProps() {
   const { data, error } = await supabase
     .from("posts")
     .select(
@@ -397,5 +400,3 @@ Post.getInitialProps = async (ctx) => {
     .single();
   return { post: data, error: error };
 };
-Post.layout = Admin;
-export default Post;
