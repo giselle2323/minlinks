@@ -366,7 +366,7 @@ const Post = ({ post }) => {
 export default Post;
 Post.layout = Admin;
 
-export async function getStaticProps() {
+export async function getStaticProps(ctx) {
   const { data, error } = await supabase
     .from("posts")
     .select(
