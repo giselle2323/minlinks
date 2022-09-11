@@ -367,6 +367,7 @@ export default Post;
 Post.layout = Admin;
 
 export async function getStaticProps(ctx) {
+  console.log(ctx.params.pid)
   const { data, error } = await supabase
     .from("posts")
     .select(
@@ -396,9 +397,9 @@ export async function getStaticProps(ctx) {
     )
   `
     )
-    .filter("id", "eq", Number(ctx.query.pid))
+    .filter("id", "eq", Number(ctx.params.pid))
     .single();
-  return { post: data, error: error };
+  return { props: {post: data, error: error }};
 };
 
 export async function getStaticPaths() {
@@ -433,7 +434,7 @@ export async function getStaticPaths() {
 `
   )
   const paths = data.map(post => ({
-    params: {id: post.id.toString()}
+    params: {pid: post.id.toString()}
   }))
 return { paths, fallback: false };
 
