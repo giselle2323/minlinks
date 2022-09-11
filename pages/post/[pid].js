@@ -433,7 +433,7 @@ export async function getStaticPaths() {
 `
   )
   const paths = data.map(post => ({
-    params: {id: post.id}
+    params: {pid: post.id}
   }))
 return { paths, fallback: false };
 
