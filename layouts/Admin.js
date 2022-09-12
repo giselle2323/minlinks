@@ -12,7 +12,7 @@ import { supabase } from "../utils/supabase";
 export default function Admin({ children, pageTitle, description }) {
   const [showAddPostModal, setShowAddPostModal] = useState(false);
   const [author, setAuthor] = useState([]);
-  const { user, error} = useUser();
+  const { user} = useUser();
   const router = useRouter();
 
   useEffect(() => {
@@ -119,7 +119,7 @@ export default function Admin({ children, pageTitle, description }) {
           <div className="flex items-center">
             <button
               onClick={toggleModal}
-              className="text-black mx-2 lg:mb-0 my-3 lg:my-3 lg:mb-4 lg:mr-3 py-2 px-6 rounded text-lg"
+              className="mx-2 lg:mb-0 my-3 lg:my-3 lg:mb-4 lg:mr-3 py-2 px-6 rounded text-lg dark:text-green-grad-one bg-green-400"
             >
               New Post{" "}
             </button>

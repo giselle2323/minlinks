@@ -1,6 +1,6 @@
 import { UserProvider } from "@auth0/nextjs-auth0";
 import { ThemeProvider } from "next-themes";
-import React, { useEffect } from "react";
+import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Hydrate } from "react-query/hydration";
 import { ToastContainer } from "react-toastify";

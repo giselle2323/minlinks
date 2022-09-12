@@ -1,14 +1,11 @@
 import { useTheme } from "next-themes";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import LandingNavbar from "../components/Navbars/LandingNavbar";
-import greenList from "../public/list-green.svg";
-import list from "../public/list-svg.svg";
 
 export default function Landing({ pageTitle, description }) {
   const { theme, setTheme } = useTheme();

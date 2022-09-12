@@ -13,7 +13,7 @@ export default function LandingNavbar({ switchTheme }) {
           <div className="flex flex-row items-center p-5 w-full lg:flex-row">
             <Link href="/">
               <a className="justify-center flex-1 focus:outline-none md:ml-auto md:mr-auto">
-                <svg
+              <svg
                   width="165"
                   height="37"
                   viewBox="0 0 165 37"
@@ -33,8 +33,8 @@ export default function LandingNavbar({ switchTheme }) {
                       y2="37"
                       gradientUnits="userSpaceOnUse"
                     >
-                      <stop stopColor="#E7755F" />
-                      <stop offset="1" stopColor="#E7755F" />
+                      <stop stopColor="#f2c384" />
+                      <stop offset="1" stopColor="#f2c384" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -43,7 +43,7 @@ export default function LandingNavbar({ switchTheme }) {
 
             {!user ? (
               <Link href="/api/auth/login">
-                <a className="w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-dark-700 dark:text-white transition duration-500 ease-in-out transform border border-green-500 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">
+                <a className="w-auto mx-2 px-8 py-2 my-2 text-base font-medium text-green-grad-one transition duration-500 ease-in-out transform border border-green-grad-one rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">
                   Login
                 </a>
               </Link>

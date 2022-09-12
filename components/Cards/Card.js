@@ -30,7 +30,7 @@ export default function ArticleCard({
   return (
     <div
       onClick={() => router.push(`/post/${id}`)}
-      className="card m-2 cursor-pointer flex flex-col border border-dark-700 dark:border-gray-800 rounded-lg transform hover:-translate-y-1 transition-all duration-200"
+      className="card m-2 cursor-pointer flex flex-col border border-gray-200 dark:border-gray-800 rounded-lg transform hover:-translate-y-1 transition-all duration-200"
     >
       <div className="m-3 flex flex-col flex-1">
         <div className="flex flex-wrap justify-between">
