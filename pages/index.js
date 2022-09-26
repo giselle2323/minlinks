@@ -48,7 +48,7 @@ export default function Landing({ pageTitle, description }) {
                 <div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 -m-6">
                     <div className="w-full p-6">
-                      <div className="p-8 border border-blue-light_700 rounded-lg h-[400px]">
+                      <div className="p-8 border border-[#f2f2f2] border-opacity-20 rounded-lg h-[400px]">
                         <span className="flex mb-14 justify-center items-center w-20 h-20 bg-blue-500 rounded-lg">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,7 @@ export default function Landing({ pageTitle, description }) {
                       </div>
                     </div>
                     <div className="w-full p-6">
-                      <div className="p-8  border border-blue-light_700 rounded-lg h-[400px]">
+                      <div className="p-8  border border-[#f2f2f2] border-opacity-20 rounded-lg h-[400px]">
                         <span className="flex mb-14 justify-center items-center w-20 h-20 bg-purple-500 rounded-lg">
                           <svg
                             className="w-8 h-8"
@@ -113,7 +113,7 @@ export default function Landing({ pageTitle, description }) {
                       </div>
                     </div>
                     <div className="w-full p-6">
-                      <div className="p-8 border border-blue-light_700 rounded-lg h-[400px]">
+                      <div className="p-8 border border-[#f2f2f2] border-opacity-20  rounded-lg h-[400px]">
                         <span className="flex mb-14 justify-center items-center w-20 h-20 bg-green-500 rounded-lg">
                           <svg
                             className="w-8 h-8"
@@ -159,7 +159,7 @@ export default function Landing({ pageTitle, description }) {
         </section>
         <section className="my-5">
           <div className="container mx-auto">
-            <div className="text-center mx-4 lg:mx-24 rounded-lg flex px-5 py-12 items-center justify-center flex-col bg-transparent border border-dark-700 dark:border-0 dark:bg-blue-light_700">
+            <div className="text-center mx-4 lg:mx-24 rounded-lg flex px-5 py-12 items-center justify-center flex-col bg-transparent border border-dark-700 dark:border-0">
               <h1 className="title-font mb-4 sm:text-4xl text-3xl py-4 mb-4 font-medium text-dark-700 dark:text-white">
                 Got suggestions on how to make this project better ?
               </h1>
