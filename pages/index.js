@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import LandingNavbar from "../components/Navbars/LandingNavbar";
 
-export default function Landing({ pageTitle, description }) {
+export default function Landing() {
   const { theme, setTheme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
 
